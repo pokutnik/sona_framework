@@ -12,7 +12,7 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 
 ## Sona framework Provides
 
-0. Great power of [less][less]. So you write Less instead of Css use variables and mixins in your code 
+0. Great power of [less][less]. So you write Less instead of CSS use variables and mixins in your code 
 1. Easy and flexible way to create grid based layout.
 2. Great local layout development enviroment. (Autoreloading styles, local webserver)
 3. Skeleton for creation responsible design
