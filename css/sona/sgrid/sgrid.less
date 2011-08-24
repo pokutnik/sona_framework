@@ -1,0 +1,145 @@
+// 
+//                                            .__    .___
+//   __________   ____ _____       ___________|__| __| _/
+//  /  ___/  _ \ /    \\__  \     / ___\_  __ \  |/ __ | 
+//  \___ (  <_> )   |  \/ __ \_  / /_/  >  | \/  / /_/ | 
+// /____  >____/|___|  (____  /  \___  /|__|  |__\____ | 
+//      \/           \/     \/  /_____/               \/ 
+//                         __                  
+//   _________.__. _______/  |_  ____   _____  
+//  /  ___<   |  |/  ___/\   __\/ __ \ /     \ 
+//  \___ \ \___  |\___ \  |  | \  ___/|  Y Y  \
+// /____  >/ ____/____  > |__|  \___  >__|_|  /
+//      \/ \/         \/            \/      \/ 
+// 
+// 
+
+
+//
+//   Setup grid system
+//   =================
+//
+//   Width and gap should be in same units
+//
+.sgrid_setup(@_width: @width,
+      @_columns: @columns,
+      @_gap: @gap)
+{
+  @width: @_width;
+  @columns: @_columns;
+  @gap: @_gap;
+  @col: @_width / @_columns;
+  @unit: @col - @_gap;
+  @gap_2: @_gap / 2;
+}
+
+
+//
+// Apply grid to element
+//
+.sgrid(@_width: @width,
+      @_columns: @columns,
+      @_gap: @gap)
+{
+  @width: @_width;
+  @columns: @_columns;
+  @gap: @_gap;
+  
+  @unit: @_width / @_columns;
+  @col: @unit - @_gap;
+  @gap_2: @_gap / 2;
+
+  width: @_width;
+  margin: 0 auto;
+  .util_clearfix();
+}
+
+
+//
+//   Aplly width of `@count` collumns to element
+// with gap size.
+//
+.col(@count) {
+  padding-left: @gap_2;
+  padding-right: @gap_2;
+  width: @width * @count / @columns - @gap;
+}
+
+//
+// `.unit` -- Aplly width of `@count` collumns to element
+// without gap size.
+//
+.unit(@count) {
+  padding-left: 0;
+  padding-right: 0;
+  width: @width * @count / @columns;
+}   
+
+
+//
+//  `.col_left` -- floats column left
+//
+.col_left() {
+    float: left;
+}
+
+//
+//  `.col_right` -- floats colunt right
+//  Note: negative margin is used to fix rounding errors
+//  apeared durind calculations
+//
+.col_right() {
+    margin-left: -5px;
+    float: right;
+}
+
+//
+//  Shifts column to `@count` units
+//  Tip: use it in pair with floats to swap columns
+//
+.shift_right(@count)
+{
+  left: @count * @width / @columns;
+  position:relative;
+}
+.shitf_left(@count)
+{
+  right: @count * @width / @columns;
+  position:relative;
+}
+
+//
+//  `.unshift` -- remove shift.
+//  Use it in mobile styles to remove shifts
+//
+.unshift() {
+    left: 0;
+    right: 0;
+}
+
+
+//
+//  .row -- wraps columns
+//
+.row() {
+    .util_clearfix();
+    width: 100%;
+    position:relative;
+}
+
+.prepend(@count, @fix: 0px) {
+  margin-left: @count * @width / @columns + @fix;
+}
+
+.append(@count, @fix: 0px) {
+  margin-fight: @count * @width / @columns + @fix;
+}
+
+.unprepend() {
+    margin-left: 0;
+}
+.unappend() {
+    margin-rignt: 0;
+}
+
+

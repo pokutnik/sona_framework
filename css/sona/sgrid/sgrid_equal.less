@@ -1,0 +1,57 @@
+/*
+ *   Hack for creating cross-browser columns 
+ * with equal heigth. 
+ * 
+ *   Add .equal_col_wrap to outer element.
+ *   Add .equal_col to each colums.
+ *  
+ *   Example
+ *   =======
+ *   
+ *   html:
+ *   
+ *  <div class='row'>
+ *      <div class='col1'>
+ *          Column 1
+ *      </div>
+ *      
+ *      <div class='col2'>Column 2
+ *          Column 2
+ *          </br>
+ *          With bigger heigth 
+ *      </div>
+ *  </div>
+ * 
+ *   less:
+ *   .sgrid_setup(960px, 8, 20px); // setup grid dimentions
+ *   .row{
+ *     .sgrid; // apply grid
+ *     .equal_col_wrap; // !! apply equal columns wraper
+ *     .col1{
+ *       .col(4);
+ *       .equal_col;  // !! apply equal column
+ *       .col_left;
+ *     }
+ *     .col2{
+ *       .col(4);
+ *       .equal_col;
+ *       .col_left;
+ *     }
+ *   }
+ * 
+ */
+.equal_col_wrap() {
+    overflow: hidden; 
+    display:block;
+    position:relative;
+}
+
+.equal_col() {
+    padding-bottom:32767px;
+    margin-bottom:-32767px; 
+}
+
+.equal_col_remove() {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
