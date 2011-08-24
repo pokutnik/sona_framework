@@ -51,4 +51,4 @@ All Rights Reserved.<br>
 Released under a ...  License.
 
 
-[less]: http://lessjs.com/ "Less CSS"
+[less]: http://lesscss.org/ "Less CSS"
