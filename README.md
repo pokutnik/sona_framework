@@ -2,11 +2,11 @@
 
 A [less][less]-based CSS Framework for easy and advanced developing HTML5 layouts. It allows you to mix and match any of the following CSS frameworks:
 
- * [sona_gs] - Sona grid system. Allows you to create grid based layouts 
- * [rhythm] - toolbox for perfect vertycally alligned texts and boxes
- * [utils] - widely used helper functions like clearfix
- * [reset] - collection of CSS resets: html5doctor, mayer, yui
- * [lessframework] - adaptation of [Less Framework][lessframework] to create responcive layouts
+ * `sona_gs` - Sona grid system. Allows you to create grid based layouts 
+ * `rhythm` - toolbox for perfect vertycally alligned texts and boxes
+ * `utils` - widely used helper functions like clearfix
+ * `reset` - collection of CSS resets: html5doctor, mayer, yui
+ * `lessframework` - adaptation of [Less Framework][lessframework] to create responcive layouts
  * in future some popular CSS frameworks
  
 
