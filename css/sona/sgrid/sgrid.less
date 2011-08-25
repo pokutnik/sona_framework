@@ -54,15 +54,22 @@
   .clearfix();
 }
 
+.gaps(){
+  padding-left: @gap_2;
+  padding-right: @gap_2;
+}
 
+.no_gaps(){
+  padding-left: 0;
+  padding-right: 0;
+}
 //
 //   Aplly width of `@count` collumns to element
 // with gap size.
 //
 .col(@count) {
-  padding-left: @gap_2;
-  padding-right: @gap_2;
   width: @width * @count / @columns - @gap;
+  .gaps;
 }
 
 //
@@ -70,9 +77,8 @@
 // without gap size.
 //
 .unit(@count) {
-  padding-left: 0;
-  padding-right: 0;
   width: @width * @count / @columns;
+  .no_gaps;
 }   
 
 
