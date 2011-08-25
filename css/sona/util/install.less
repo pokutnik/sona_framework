@@ -1,4 +1,13 @@
 //
+// Util module.
+//
+// Mixins:
+// * .clarfix();
+// * .opacity();
+//
+
+
+//
 // The Magnificent Micro Clearfix
 //
 // Useful for clearing floats without structural markup.
@@ -27,4 +36,14 @@
   }
   // For IE 6/7 support trigger hasLayout
   zoom: 1;
+}
+
+
+
+// While ie7-js provides opacity support for IE this may still be useful
+// for using sona_gs without the bundled JavaScripts.
+.opacity(@opacity) {
+  opacity: @opacity; // FF .9+, Opera 9+, Safari 1.2, Chrome 1.0, Webkit 125
+  -ms-filter: e(%('"progid:DXImageTransform.Microsoft.Alpha(Opacity=%s)"', @opacity * 100)); // IE8
+  filter:  e(%('alpha(opacity=%s)', @opacity * 100)); // IE5-7
 }
