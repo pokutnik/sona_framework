@@ -40,6 +40,13 @@
 
 
 
+.selection(@color: rgb(255,255,158) ){
+    ::selection         {background: @color;}
+    ::-moz-selection    {background: @color;}
+    img::selection      {background: @color;}
+    img::-moz-selection {background: @color;}
+    -webkit-tap-highlight-color: @color;
+}
 // While ie7-js provides opacity support for IE this may still be useful
 // for using sona_gs without the bundled JavaScripts.
 .opacity(@opacity) {
