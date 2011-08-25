@@ -6,6 +6,7 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
  * [rhythm] - toolbox for perfect vertycally alligned texts and boxes
  * [utils] - widely used helper functions like clearfix
  * [reset] - collection of CSS resets: html5doctor, mayer, yui
+ * [lessframework] - adaptation of [Less Framework][lessframework] to create responcive layouts
  * in future some popular CSS frameworks
  
 
@@ -61,4 +62,4 @@ Released under MIT License.
 [sona]: http://sona-studio.com/ "Sona studio"
 [less]: http://lesscss.org/ "Less CSS"
 [zip]: http://github.com/pokutnik/sona_framework/zipball/master "Sona framework ZIP archive"
-
+[lessframework]: http://lessframework.com/ "Less framework"
