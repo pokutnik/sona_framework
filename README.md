@@ -26,6 +26,7 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
   * or `wget -qO- https://github.com/pokutnik/sona_framework/tarball/master | tar xzv`
 2. Include sona less framework in your html
 
+    
     <!-- link jQuery -->
     <script src="js/libs/jquery-1.5.2.js"></script>
     <!-- link sona framework's js files -->
@@ -37,7 +38,8 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
     <script>
         css.load('dev.less', 'stylesheet/less', 'dev_css');
     </script>
-
+    
+    
 3. Open your html in browser. 
 4. Code layout in `dev.less` file. Changes will automaticly reloded so you will see them directly in browser without reloading page.
 
@@ -48,8 +50,10 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 Sona less framework is developed by Pokutnik Alexandr and Jevgenii Likhovidov at [Sona studio][sona]. 
 
 ## License
-Copyright (c) 2010-2011 Sona studio
+Copyright (c) 2010-2011 [Sona studio][sona]
+
 All Rights Reserved.
+
 Released under MIT License.
 
 
