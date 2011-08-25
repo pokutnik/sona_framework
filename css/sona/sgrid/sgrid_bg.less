@@ -1,0 +1,32 @@
+//
+//  Places grid layer at the top center position
+// 
+
+.sgrid_layer(@_width:@width, @_unit:@unit, @_gap:@gap, @_rythm:@rhythm){
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 4000px;
+  .sgrid_bg(@_unit, @_gap, @_rythm);
+  margin: 0 auto;
+  margin-left: -@_width/2;
+  width: @_width;
+}
+
+
+//
+//  Draws background filled with unit-gap slices
+//
+.sgrid_bg(@_unit:@unit, @_gap:@gap, @_rythm:@rhythm){
+@p1: @_gap / 2;
+@p2: @_unit - @p1; 
+background-image: linear-gradient(0, rgba(200,0,0,0.1) @p1, transparent @p1, transparent @p2, rgba(200,0,0,0.1) @p2)
+                , linear-gradient(rgba(0,0,200,0.1) 1px, transparent 1px);
+background-image: -webkit-linear-gradient(0, rgba(200,0,0,0.1) @p1, transparent @p1, transparent @p2, rgba(200,0,0,0.1) @p2)
+                , -webkit-linear-gradient(rgba(0,0,200,0.1) 1px, transparent 1px);
+background-image: -moz-linear-gradient(0, rgba(200,0,0,0.1) @p1, transparent @p1, transparent @p2, rgba(200,0,0,0.1) @p2)
+                , -moz-linear-gradient(rgba(0,0,200,0.1) 1px, transparent 1px);
+                
+background-size: @_unit @_rythm;
+}
