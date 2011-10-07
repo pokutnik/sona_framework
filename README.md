@@ -29,17 +29,17 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
   * or `wget -qO- https://github.com/pokutnik/sona_framework/tarball/master | tar xzv`
 2. Include sona less framework in your html
 
-    &lt;!-- link jQuery --&gt;
-    &lt;script src="js/libs/jquery-1.5.2.js"&gt;&lt;/script&gt;
-    &lt;!-- link sona framework's js files --&gt;
-    &lt;script src="js/sona/css.js"&gt;&lt;/script&gt;
-    &lt;script src="js/libs/less-1.1.3.js"&gt;&lt;/script&gt;
-    &lt;!-- enable auto styles refresh --&gt;
-    &lt;script src="js/sona/less-watch.js"&gt;&lt;/script&gt;
-    &lt;!-- include main dev.less file --&gt;
-    &lt;script&gt;
-        css.load('dev.less', 'stylesheet/less', 'dev_css');
-    &lt;/script&gt;
+        &lt;!-- link jQuery --&gt;
+        &lt;script src="js/libs/jquery-1.5.2.js"&gt;&lt;/script&gt;
+        &lt;!-- link sona framework's js files --&gt;
+        &lt;script src="js/sona/css.js"&gt;&lt;/script&gt;
+        &lt;script src="js/libs/less-1.1.3.js"&gt;&lt;/script&gt;
+        &lt;!-- enable auto styles refresh --&gt;
+        &lt;script src="js/sona/less-watch.js"&gt;&lt;/script&gt;
+        &lt;!-- include main dev.less file --&gt;
+        &lt;script&gt;
+            css.load('dev.less', 'stylesheet/less', 'dev_css');
+        &lt;/script&gt;
     
     
 3. Open your html in browser. 
