@@ -13,7 +13,9 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 
 ## Sona framework Provides
 
-0. Great power of [less][less]. So you write Less instead of CSS use variables and mixins in your code 
+0. Great power of [less][less]. So you write Less instead of CSS use variables and
+   mixins in your code. Dont need to use aditional classes in your html, just appy
+   mixind according page semantic selectors.
 1. Easy and flexible way to create grid based layout.
 2. Great local layout development enviroment. (Autoreloading styles, local webserver)
 3. Skeleton for creation responsible design
@@ -27,7 +29,7 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
   * or `wget -qO- https://github.com/pokutnik/sona_framework/tarball/master | tar xzv`
 2. Include sona less framework in your html
 
-    
+    <code> 
     <!-- link jQuery -->
     <script src="js/libs/jquery-1.5.2.js"></script>
     <!-- link sona framework's js files -->
@@ -39,6 +41,7 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
     <script>
         css.load('dev.less', 'stylesheet/less', 'dev_css');
     </script>
+    </code>
     
     
 3. Open your html in browser. 
