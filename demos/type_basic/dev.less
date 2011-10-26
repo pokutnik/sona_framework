@@ -1,0 +1,31 @@
+
+// setup vertical rhythm
+@rhythm: 21px;
+
+
+// Load Sona framework
+@setup_framework_path: "../../css/sona";
+@import "../../css/sona/util/install";
+@import "../../css/sona/sgrid/install";
+@import "../../css/sona/rhythm/install";
+@import "../../css/sona/reset/install";
+
+.normalize();
+.sgrid_setup(960px, 6, 20px);
+body {
+  .sgrid;
+  border-left: 4px solid black;
+
+  header {
+    .row;
+    border-left: 4px solid blue;
+    .prepend(1);
+
+    section {
+        .row;
+        border-left: 4px solid green;
+        .prepend(1);
+    }
+  }
+}
+
