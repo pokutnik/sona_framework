@@ -1,0 +1,57 @@
+.fs_mul(@mult: 1){
+    font-size: @rhythm * @mult;
+    @lines: ~`Math.ceil(@{mult})`;
+    line-height: 1em * @lines / @mult;
+}
+
+.type_mul(@mult: 1){
+    .fs_mul(@mult);
+    margin-bottom: 1em / @mult;
+	margin-top: 1em / @mult;
+}
+.type_body_hack(@height: @rhythm, @size: @base_fs) {
+  @_size: @size;
+  @_base: @_size / 16;
+  font-size: 1% * @_base * 100;
+  @factor: @height / @_size;
+  @rhythm: 1em * @factor;
+  line-height: @height;
+}
+
+.type_rhythm(@height: @rhythm, @_base_fs: @base_fs) {
+  @base_fs: @_base_fs;
+  .type_body_hack(@height, @_base_fs);
+
+  p {
+    font-size: 1em;
+    line-height: @height;
+    margin-bottom: @height;
+	margin-top: @height;
+  }
+
+  h1 {
+    .type_mul(1.8);
+  }
+
+  h2 {
+    .type_mul(1.5);
+  }
+
+  h3 {
+    .type_mul(1.2);
+  }
+
+  h4 {
+    .type_mul(1.0);
+  }
+  
+  h5 {
+    .type_mul(0.8);
+  }
+
+  h6 {
+    .type_mul(0.6);
+  }
+  
+}
+
