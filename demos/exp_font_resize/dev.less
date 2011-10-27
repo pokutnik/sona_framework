@@ -1,0 +1,38 @@
+
+// setup vertical rhythm
+@rhythm: 21px;
+// setup base font size
+@base_fs: 16px;
+
+// Load Sona framework
+@setup_framework_path: "../../css/sona";
+@import "../../css/sona/util/install";
+@import "../../css/sona/sgrid/install";
+@import "../../css/sona/rhythm/install";
+@import "../../css/sona/reset/install";
+
+@import "../../css/sona/type/install";
+
+.normalize();
+.sgrid_setup(500px, 6, 20px);
+body {
+  .sgrid;
+  border-left: 4px solid black;
+  .sgrid_bg(0, 0, @rhythm);  
+
+  .type_body_hack();
+  header {
+    border-left: 4px solid blue;
+    .prepend(1);
+
+    h1 { 
+    }
+
+    section {
+        h1 {
+            
+        }
+    }
+  }
+}
+
