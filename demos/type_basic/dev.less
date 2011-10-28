@@ -1,6 +1,6 @@
 
 // setup vertical rhythm
-@rhythm: 21px;
+@rhythm: 20px;
 // setup base font size
 @base_fs: 18px;
 
@@ -26,14 +26,20 @@ body{
 
   .type_headers(32px); // set headers sizes from h1=32px to h6=base_fs (18px)
 //  .type_text();
+  p,h1,h2,h3,h4,h5,h6 { .reset_margins(); }
 
   header {
-    .fs(12px); // change base fontsize;
+    .line_em(12px, @base_fs);
+    .fs(12px, @base_fs); // change base fontsize;
     .type_headers(72px); // set headers sizes from h1=72px to h6=base_fs (12px)
 
     section {
         // redefine h1 fontsize in section 
-        h1 { .fs(24); }
+        h1 { 
+          @base_fs: 12px;
+          .fs(24px, @base_fs);
+          .line_em(24px, @base_fs);
+        }
         
         border-left: 4px solid green;
         .prepend(1);

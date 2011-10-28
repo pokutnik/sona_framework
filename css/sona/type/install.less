@@ -12,7 +12,40 @@
 
 .fs(@_size, @_base_fs:@base_fs){
   @base_fs: @_size; // change base_fs to new value
-  font-size: 1em * @_size / @_base_fs; // calculate em 
+  //font-size: 1em * @_size / @_base_fs; // calculate em 
+  
+  @val: 1em * @_size / @_base_fs;
+  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(2)`;
+  font-size: 1em * @rounded;  
+  
+}
+
+//
+// .line -- sets line-height to multiple of @rhythm bigger than first parametr
+// Example:
+//     @rhythm: 20px;
+//     .line(10px); // fits in 1 @rhythm, line-height: 20px;
+//     .line(20px); // fits in 1 @rhythm, line-height: 20px;
+//     .line(21px); // fits in 2 @rhythm, line-height: 40px;
+//     .line(72px); // fits in 4 @rhythm, line-height: 80px;
+
+.line(@_size, @_height:@rhythm){
+  @l1: @_size / @_height;
+  @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
+  @l: ~`Math.ceil(@{l2})`;
+  line-height: @_height * @l;
+}
+
+.line_em(@_size, @_height:@rhythm, @_base_fs: @base_fs){
+  @l1: @_size / @_height;
+  @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
+  @l: ~`Math.ceil(@{l2})`;
+  
+  //line-height: 1em * @_height * @l / @_size;
+  // rounding
+  @val: 1em * @_height * @l / @_size;
+  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(2)`;
+  line-height: 1em * @rounded;  
 }
 
 //
@@ -35,15 +68,14 @@
 }
 
 .fs_mul(@ratio, @_height: @rhythm, @_base_fs:@base_fs){
-  .fs(@ratio*@_base_fs);
-  @l1: @_base_fs * @ratio / @_height;
-  @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
-  @l: ~`Math.ceil(@{l2})`;
-
-  line-height: @_height * @l;
+  @size: @ratio*@_base_fs;
+  .fs(@size, @_base_fs);
+//  .line_em(@size, @_base_fs);
+  .line(@size);
 }
 
-.type_headers(@_max:48, @_base:@base_fs, @mar_t: 0.5)
+
+.type_headers(@_max:48, @_base:@base_fs)
 {
     @a: ~`"@{_base}".match(/([\d.]+)/)[0]`;
     @b: ~`"@{_max}".match(/([\d.]+)/)[0]`;
