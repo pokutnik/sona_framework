@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sona Framework: type module demo</title>
+    
+    <!-- link jQery -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script> -->
+    <script src="../../js/libs/jquery-1.5.2.js"></script>
+    
+    <!-- link sona grid system js files -->
+    <script src="../../js/sona/css.js"></script>
+    <script src="../../js/libs/less-1.1.3.js"></script>
+    <!-- link to enable auto styles refresh -->
+    <script src="../../js/sona/less-watch.js"></script>
+    <!-- include main dev.less file -->
+    <script>
+        css.load('dev.less', 'stylesheet/less', 'dev_css');
+    </script>
+</head>
+
+<body>
+    <h1>Type demo</h1>
+    On this page we will use some cool features from type module.
+    To work with type module we need to set @rhythm ans @base_fs variables.
+    <code>
+      @rhythm: 20px;
+      @base_fs: 16px;
+    </code>
+    
+    Next step is to properly set body's font-size.
+    <code>
+      body {
+        .type_body();      
+      }
+    </code>
+    
+    Now body has 16/20 font.
+    <header> 
+        <h1>this is header. Here we redefine base font size to 18/20 font</h1>
+        <section class='headers'>
+            <h1>Biggest heading h1 72/80</h1>
+            <h2>Sub header h2</h2>
+        </section>
+        <section class='headers'>
+            <h3>Subsub header h3</h3>
+            <h4>Another header h4</h4>
+        </section>
+        <section class='headers'>
+            <h5>Almoust last one h5</h5>
+            <h6>Last header h6 18/20</h6>
+        </section>
+    </header>
+</body>
+</html>

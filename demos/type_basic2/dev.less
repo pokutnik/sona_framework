@@ -1,0 +1,50 @@
+
+
+@rhythm: 20px; // setup vertical rhythm
+@base_fs: 16px; // setup base font size
+
+// Load Sona framework
+@setup_framework_path: "../../css/sona";
+@import "../../css/sona/util/install";
+@import "../../css/sona/sgrid/install";
+@import "../../css/sona/rhythm/install";
+@import "../../css/sona/reset/install";
+.normalize(); // reset
+
+@import "../../css/sona/type/install";
+
+body{
+  .type_body();
+  
+}
+
+// set border to see headers sizes
+h1,h2,h3,h4,h5,h6 {
+border-left: 3px solid gray;
+padding-left: 5px;
+}
+
+// layout
+.sgrid_setup(800px, 6, 20px);
+body{
+ .sgrid;
+ .sgrid_bg(0, 0, @rhythm);  
+ header{ 
+   .row();
+   outline-top: 1px solid black;
+   section.headers {
+     .col(2);
+     .col_left;
+     
+     .push(1);
+     .pull(1);
+     border-width: @rhythm;
+     border-top-style: solid;
+     &:nth-child(2){ border-top-color: red; }
+     &:nth-child(3){ border-top-color: green; }
+     &:nth-child(4){ border-top-color: blue; }
+   }
+ }
+}
+
+
