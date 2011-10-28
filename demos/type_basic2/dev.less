@@ -15,34 +15,48 @@
 
 body{
   .type_body();
-  
+  .type_headers(); 
+}
+
+header {
+    .fs(18px);
+    .line(18px);
+    .type_headers(38px);
 }
 
 // set border to see headers sizes
 h1,h2,h3,h4,h5,h6 {
-border-left: 3px solid gray;
-padding-left: 5px;
+  border-left: 3px solid gray;
+  padding-left: 5px;
 }
+pre{
+  border-left: 1px dashed gray;
+  padding-left: 5px;
+}
+p,h1,h2,h3,h4,h5,h6,pre { margin: @rhythm 0; }
+
 
 // layout
 .sgrid_setup(800px, 6, 20px);
 body{
  .sgrid;
- .sgrid_bg(0, 0, @rhythm);  
+ .sgrid_bg(0, 0, @rhythm);  // set horisontal lines on bg
  header{ 
    .row();
    outline-top: 1px solid black;
    section.headers {
      .col(2);
+     .no_gaps;
      .col_left;
      
      .push(1);
-     .pull(1);
+     padding-top: @rhythm;
+     padding-bottom: @rhythm;
      border-width: @rhythm;
      border-top-style: solid;
-     &:nth-child(2){ border-top-color: red; }
-     &:nth-child(3){ border-top-color: green; }
-     &:nth-child(4){ border-top-color: blue; }
+     &:nth-of-type(1){ border-top-color: #000; }
+     &:nth-of-type(2){ border-top-color: #333; }
+     &:nth-of-type(3){ border-top-color: #666; }
    }
  }
 }

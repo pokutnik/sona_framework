@@ -25,32 +25,33 @@
 
 <body>
     <h1>Type demo</h1>
-    On this page we will use some cool features from type module.
-    To work with type module we need to set @rhythm ans @base_fs variables.
-    <code>
-      @rhythm: 20px;
-      @base_fs: 16px;
-    </code>
+    <p>On this page we will use some cool features from type module.</p>
+    <p>To work with type module we need to set @rhythm ans @base_fs variables.</p>
+
+<pre>
+  @rhythm: 20px;
+  @base_fs: 16px;</pre>
     
-    Next step is to properly set body's font-size.
-    <code>
-      body {
-        .type_body();      
-      }
-    </code>
-    
-    Now body has 16/20 font.
+    <p>Next step is to properly set body's font-size.</p>
+
+<pre>
+  body {
+    .type_body();      
+  }</pre>
+
+    <p>Now body has 16/20 font.</p>
+    <h1>In header bellow we redefine base font size to 18/20 font. And set hesers sizes from 38 to 18</h1>
+
     <header> 
-        <h1>this is header. Here we redefine base font size to 18/20 font</h1>
         <section class='headers'>
-            <h1>Biggest heading h1 72/80</h1>
+            <h1>Biggest heading h1 38/40</h1>
+        </section>
+        <section class='headers'>
             <h2>Sub header h2</h2>
-        </section>
-        <section class='headers'>
             <h3>Subsub header h3</h3>
-            <h4>Another header h4</h4>
         </section>
         <section class='headers'>
+            <h4>Another header h4</h4>
             <h5>Almoust last one h5</h5>
             <h6>Last header h6 18/20</h6>
         </section>
