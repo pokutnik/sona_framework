@@ -16,23 +16,32 @@
 .normalize();
 .sgrid_setup(500px, 6, 20px);
 body {
-  .sgrid;
-  border-left: 4px solid black;
-  .sgrid_bg(0, 0, @rhythm);  
-
-  .type_body_hack();
+  .type_body();
+  .type_headers();
+  h1, h2, h3, h4, h5, h6 {
+    .reset_margins();
+  }
+  
   header {
-    border-left: 4px solid blue;
-    .prepend(1);
+    .fs(13px);
+    .type_headers(72px);
 
-    h1 { 
+    p {
+      .fs_mul(1);
+      margin: 0;
     }
 
     section {
-        h1 {
-            
-        }
+      .type_headers(24px);
     }
+
+    border-left: 4px solid blue;
+    .prepend(1);
   }
+
+  .sgrid;
+  border-left: 4px solid black;
+  .sgrid_bg(0, 0, @rhythm);  
+  
 }
 

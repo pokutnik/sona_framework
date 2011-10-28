@@ -1,57 +1,75 @@
-.fs_mul(@mult: 1){
-    font-size: @rhythm * @mult;
-    @lines: ~`Math.ceil(@{mult})`;
-    line-height: 1em * @lines / @mult;
+//
+// .fs -- mixin sets font-size from px to em value. 
+//   Changes @base_fs in local scope, so second parameter is optional if mixin 
+//   used in nested rules.
+//
+// Example (contimues .type_body example)
+//     header {
+//       .fs(20px);
+//       h1 { .fs(32px); }
+//       h2 { .fs(12); } 
+//     }
+
+.fs(@_size, @_base_fs:@base_fs){
+  @base_fs: @_size; // change base_fs to new value
+  font-size: 1em * @_size / @_base_fs; // calculate em 
 }
 
-.type_mul(@mult: 1){
-    .fs_mul(@mult);
-    margin-bottom: 1em / @mult;
-	margin-top: 1em / @mult;
-}
-.type_body_hack(@height: @rhythm, @size: @base_fs) {
-  @_size: @size;
+//
+// .type_body -- apply this mixin to body element to set font-size in percent.
+//
+// Example:
+//     @rhythm: 24px
+//     @base_fs: 18px;
+//     body {
+//       .type_body();
+//     }
+
+.type_body(@_size: @base_fs, @_height: @rhythm, @_base_fs: @base_fs) {
+  @base_fs: @_size;
   @_base: @_size / 16;
   font-size: 1% * @_base * 100;
-  @factor: @height / @_size;
+  @factor: @_height / @_size;
   @rhythm: 1em * @factor;
-  line-height: @height;
+  line-height: @_height;
 }
 
-.type_rhythm(@height: @rhythm, @_base_fs: @base_fs) {
-  @base_fs: @_base_fs;
-  .type_body_hack(@height, @_base_fs);
+.fs_mul(@ratio, @_height: @rhythm, @_base_fs:@base_fs){
+  .fs(@ratio*@_base_fs);
+  @l1: @_base_fs * @ratio / @_height;
+  @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
+  @l: ~`Math.ceil(@{l2})`;
 
-  p {
-    font-size: 1em;
-    line-height: @height;
-    margin-bottom: @height;
-	margin-top: @height;
-  }
-
-  h1 {
-    .type_mul(1.8);
-  }
-
-  h2 {
-    .type_mul(1.5);
-  }
-
-  h3 {
-    .type_mul(1.2);
-  }
-
-  h4 {
-    .type_mul(1.0);
-  }
-  
-  h5 {
-    .type_mul(0.8);
-  }
-
-  h6 {
-    .type_mul(0.6);
-  }
-  
+  line-height: @_height * @l;
 }
 
+.type_headers(@_max:48, @_base:@base_fs, @mar_t: 0.5)
+{
+    @a: ~`"@{_base}".match(/([\d.]+)/)[0]`;
+    @b: ~`"@{_max}".match(/([\d.]+)/)[0]`;
+    @k: ~`Math.pow(parseFloat(@{b}/@{a}), 0.2)`;
+    
+    h1 {
+      .fs_mul(1 * @k * @k * @k * @k * @k);
+    }
+    h2 { 
+      .fs_mul(1 * @k * @k * @k * @k);
+    }
+    h3 { 
+      .fs_mul(1 * @k * @k * @k);
+    }
+    h4 { 
+      .fs_mul(1 * @k * @k);
+    }
+    h5 { 
+      .fs_mul(1 * @k);
+    }
+    h6 { 
+      .fs_mul(1);
+    }
+}
+
+.reset_margins() {
+  margin-top: 0; 
+  margin-bottom: 0;
+}
