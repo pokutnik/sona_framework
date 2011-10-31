@@ -32,29 +32,65 @@
   @rhythm: 20px;
   @base_fs: 16px;</pre>
     
-    <p>Next step is to properly set body's font-size.</p>
+    <p>Next step is to properly set body's font-size. Also apply default
+    stylesheet to headers.</p>
 
 <pre>
   body {
-    .type_body();      
+    .type_body();
+    .type_headers();      
   }</pre>
 
-    <p>Now body has 16/20 font.</p>
-    <h1>In header bellow we redefine base font size to 18/20 font. And set hesers sizes from 38 to 18</h1>
+    <p>Now body has 16/20 font. And headers are from 48px to 16px</p>
 
-    <header> 
-        <section class='headers'>
+    <p>In article bellow we redefine base font size to 18/20 font. And set hesers sizes from 38 to 18</p>
+<pre>
+  article {
+    .fs(18px);
+    .line(18px);
+    .type_headers(38px);
+  }</pre>
+
+    <article> 
+        <section>
             <h1>Biggest heading h1 38/40</h1>
         </section>
-        <section class='headers'>
+        <section>
             <h2>Sub header h2</h2>
             <h3>Subsub header h3</h3>
         </section>
-        <section class='headers'>
+        <section>
             <h4>Another header h4</h4>
             <h5>Almoust last one h5</h5>
             <h6>Last header h6 18/20</h6>
         </section>
-    </header>
+    </article>
+    
+    <p>But also we can change styles for headers inside `section.headers`
+    from 72 to 24 </p>
+<pre>
+section.headers{
+  .fs(24px, 18px); // specify font size from article
+  .line(24px);
+  .type_headers(72px);
+}</pre>
+    
+    <article>
+        <section class='headers'>
+            <h1>I can haz big haed h1 72/80</h1>
+        </section>
+        <section class='headers'>
+            <h2>Sub header h2</h2>
+            <h3>Subsub header h3</h3>
+            <p>Paragraph text 24/40</p>
+        </section>
+        <section class='headers'>
+            <h4>Another header h4</h4>
+            <h5>Almoust last one h5</h5>
+            <h6>Last header h6 24/40</h6>
+            <p>And paragpaph text. Here should be a lot of text to see 
+            multiple lines 24/40</p>
+        </section>
+    </article>
 </body>
 </html>
