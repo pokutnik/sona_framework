@@ -29,16 +29,15 @@ body{
   p,h1,h2,h3,h4,h5,h6 { .reset_margins(); }
 
   header {
-    .line_em(12px, @base_fs);
-    .fs(12px, @base_fs); // change base fontsize;
-    .type_headers(72px); // set headers sizes from h1=72px to h6=base_fs (12px)
+    .fs(12px); // change base fontsize;
+    .line_em(12px);
+    .type_headers(72px, @rhythm, 12px); // set headers sizes from h1=72px to h6=base_fs (12px)
 
     section {
         // redefine h1 fontsize in section 
         h1 { 
-          @base_fs: 12px;
-          .fs(24px, @base_fs);
-          .line_em(24px, @base_fs);
+          .fs(24px, 12px);
+          .line_em(24px);
         }
         
         border-left: 4px solid green;
