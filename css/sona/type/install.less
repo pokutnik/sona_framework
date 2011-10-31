@@ -1,19 +1,48 @@
+//    _______               
+//   |__   __|              
+//      | |_   _ _ __   ___ 
+//      | | | | | '_ \ / _ \
+//      | | |_| | |_) |  __/
+//      |_|\__, | .__/ \___|
+//          __/ | |         
+//         |___/|_|         
 //
-// .fs -- mixin sets font-size from px to em value. 
-//   Changes @base_fs in local scope, so second parameter is optional if mixin 
-//   used in nested rules.
+
+// Type modyle have mixins to operate with fonts using css.
+//
+// Quick usage:
+//     @rhythm: 24px;    // 1) set @rhythm variable
+//     @base_fs: 18px;   // 2) set @base_fs variable
+//
+//     body {            
+//       .type_body();        // 3) apply .type_body mixin to body
+//       .type_headers(32px); // *) (opt) set header sizes, h1=32px, h6=18px
+//     }                 
+//
+//     // set font-size
+//     article { 
+//       fs(12px);  
+//       p { fs(16px, 12px) } 
+//     }
+//
+//
+
+
+//
+// .fs -- mixin sets font-size from px to em value.
+//   Second parameter is base font size (eg font size set in parent element)
 //
 // Example (contimues .type_body example)
+//     @base_fs: 18px;
 //     header {
 //       .fs(20px);
-//       h1 { .fs(32px); }
-//       h2 { .fs(12); } 
+//       h2 { .fs(12px, 20px); } 
 //     }
+//     h1 { .fs(32px); }
 
 .fs(@_size, @_base_fs:@base_fs){
   @base_fs: @_size; // change base_fs to new value
   //font-size: 1em * @_size / @_base_fs; // calculate em 
-  
   @val: 1em * @_size / @_base_fs;
   @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(3)`;
   font-size: 1em * @rounded;  
@@ -52,7 +81,7 @@
 // .type_body -- apply this mixin to body element to set font-size in percent.
 //
 // Example:
-//     @rhythm: 24px
+//     @rhythm: 24px;
 //     @base_fs: 18px;
 //     body {
 //       .type_body();
