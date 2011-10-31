@@ -1,7 +1,20 @@
-// setup vertical rhythm
- @rhythm: 21px;
+@rhythm: 21px; // setup vertical rhythm
+@base_fs: 16px; // setup base font size
 
-@import "sona/util/install";
-@import "sona/sgrid/install";
-@import "sona/rhythm/install";
+// Load Sona framework
+@setup_framework_path: "../../css/sona";
+@import "../../css/sona/util/install";
+@import "../../css/sona/sgrid/install";
+@import "../../css/sona/rhythm/install";
+@import "../../css/sona/reset/install";
+@import "../../css/sona/type/install";
+
+.normalize; // normalize css or
+// .reset_yui;
+// .reset_meyer;
+// .reset_html5doctor;
+
+
+@import "type.less"; // here type related styles
+@import "layout.less"; // here layout and grid related styles
 

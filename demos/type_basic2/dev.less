@@ -1,0 +1,56 @@
+
+// setup vertical rhythm
+@rhythm: 20px;
+// setup base font size
+@base_fs: 18px;
+
+@type-family: "Lucida Grande", Arial, sans-serif;
+@type-head-family: Helvetica, Arial, serif;
+ 
+
+// Load Sona framework
+@setup_framework_path: "../../css/sona";
+@import "../../css/sona/util/install";
+@import "../../css/sona/sgrid/install";
+@import "../../css/sona/rhythm/install";
+@import "../../css/sona/reset/install";
+
+@import "../../css/sona/type/install";
+
+.normalize();
+
+.sgrid_setup(500px, 6, 20px);
+body{
+  .type_body(); // apply body fontsize in %
+
+
+  .type_headers(32px); // set headers sizes from h1=32px to h6=base_fs (18px)
+//  .type_text();
+  p,h1,h2,h3,h4,h5,h6 { .reset_margins(); }
+
+  header {
+    .fs(12px); // change base fontsize;
+    .line_em(12px);
+    .type_headers(72px, @rhythm, 12px); // set headers sizes from h1=72px to h6=base_fs (12px)
+
+    section {
+        // redefine h1 fontsize in section 
+        h1 { 
+          .fs(24px, 12px);
+          .line_em(24px);
+        }
+        
+        border-left: 4px solid green;
+        .prepend(1);
+    }
+
+    border-left: 4px solid blue;
+    .prepend(1);
+  }
+
+  .sgrid;
+  border-left: 4px solid black;
+  .sgrid_bg(0, 0, @rhythm);  
+  
+}
+

@@ -1,25 +1,87 @@
+//    _______               
+//   |__   __|              
+//      | |_   _ _ __   ___ 
+//      | | | | | '_ \ / _ \
+//      | | |_| | |_) |  __/
+//      |_|\__, | .__/ \___|
+//          __/ | |         
+//         |___/|_|         
 //
-// .fs -- mixin sets font-size from px to em value. 
-//   Changes @base_fs in local scope, so second parameter is optional if mixin 
-//   used in nested rules.
+
+// Type modyle have mixins to operate with fonts using css.
+//
+// Quick usage:
+//     @rhythm: 24px;    // 1) set @rhythm variable
+//     @base_fs: 18px;   // 2) set @base_fs variable
+//
+//     body {            
+//       .type_body();        // 3) apply .type_body mixin to body
+//       .type_headers(32px); // *) (opt) set header sizes, h1=32px, h6=18px
+//     }                 
+//
+//     // set font-size
+//     article { 
+//       fs(12px);  
+//       p { fs(16px, 12px) } 
+//     }
+//
+//
+
+
+//
+// .fs -- mixin sets font-size from px to em value.
+//   Second parameter is base font size (eg font size set in parent element)
 //
 // Example (contimues .type_body example)
+//     @base_fs: 18px;
 //     header {
 //       .fs(20px);
-//       h1 { .fs(32px); }
-//       h2 { .fs(12); } 
+//       h2 { .fs(12px, 20px); } 
 //     }
+//     h1 { .fs(32px); }
 
 .fs(@_size, @_base_fs:@base_fs){
   @base_fs: @_size; // change base_fs to new value
-  font-size: 1em * @_size / @_base_fs; // calculate em 
+  //font-size: 1em * @_size / @_base_fs; // calculate em 
+  @val: 1em * @_size / @_base_fs;
+  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(3)`;
+  font-size: 1em * @rounded;  
+  
+}
+
+//
+// .line -- sets line-height to multiple of @rhythm bigger than first parametr
+// Example:
+//     @rhythm: 20px;
+//     .line(10px); // fits in 1 @rhythm, line-height: 20px;
+//     .line(20px); // fits in 1 @rhythm, line-height: 20px;
+//     .line(21px); // fits in 2 @rhythm, line-height: 40px;
+//     .line(72px); // fits in 4 @rhythm, line-height: 80px;
+
+.line(@_size, @_height:@rhythm){
+  @l1: @_size / @_height;
+  @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
+  @l: ~`Math.ceil(@{l2})`;
+  line-height: @_height * @l;
+}
+
+.line_em(@_size, @_height:@rhythm){
+  @l1: @_size / @_height;
+  @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
+  @l: ~`Math.ceil(@{l2})`;
+
+  //line-height: 1em * @_height * @l / @_size;
+  // rounding
+  @val: 1em * @l * @_height / @_size ;
+  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(3)`;
+  line-height: 1em * @rounded;  
 }
 
 //
 // .type_body -- apply this mixin to body element to set font-size in percent.
 //
 // Example:
-//     @rhythm: 24px
+//     @rhythm: 24px;
 //     @base_fs: 18px;
 //     body {
 //       .type_body();
@@ -35,37 +97,35 @@
 }
 
 .fs_mul(@ratio, @_height: @rhythm, @_base_fs:@base_fs){
-  .fs(@ratio*@_base_fs);
-  @l1: @_base_fs * @ratio / @_height;
-  @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
-  @l: ~`Math.ceil(@{l2})`;
-
-  line-height: @_height * @l;
+  @size: @ratio*@_base_fs;
+  .fs(@size, @_base_fs);
+  .line_em(@size, @_height);
 }
 
-.type_headers(@_max:48, @_base:@base_fs, @mar_t: 0.5)
+
+.type_headers(@_max:48, @_height: @rhythm, @_base:@base_fs)
 {
     @a: ~`"@{_base}".match(/([\d.]+)/)[0]`;
     @b: ~`"@{_max}".match(/([\d.]+)/)[0]`;
     @k: ~`Math.pow(parseFloat(@{b}/@{a}), 0.2)`;
     
     h1 {
-      .fs_mul(1 * @k * @k * @k * @k * @k);
+      .fs_mul(1 * @k * @k * @k * @k * @k, @_height, @_base);
     }
     h2 { 
-      .fs_mul(1 * @k * @k * @k * @k);
+      .fs_mul(1 * @k * @k * @k * @k, @_height, @_base);
     }
     h3 { 
-      .fs_mul(1 * @k * @k * @k);
+      .fs_mul(1 * @k * @k * @k, @_height, @_base);
     }
     h4 { 
-      .fs_mul(1 * @k * @k);
+      .fs_mul(1 * @k * @k, @_height, @_base);
     }
     h5 { 
-      .fs_mul(1 * @k);
+      .fs_mul(1 * @k, @_height, @_base);
     }
     h6 { 
-      .fs_mul(1);
+      .fs_mul(1, @_height, @_base);
     }
 }
 
