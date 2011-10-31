@@ -33,28 +33,30 @@ section.headers{
 
 // set border to see headers sizes
 h1,h2,h3,h4,h5,h6 {
-  border-left: 3px solid black;
+  border-left: 3px solid black; // border to see actual header height
   padding-left: 5px;
 }
 pre{
-  border-left: 1px dashed gray;
-  padding-left: 5px;
+  border-left: 1px dashed gray; // decoration
+  padding-left: 1em;
 }
 p,h1,h2,h3,h4,h5,h6,pre { margin: @rhythm 0; }
 
 
 // layout
-.sgrid_setup(800px, 6, 20px);
+.sgrid_setup(900px, 6, 20px);
 body{
   .sgrid;
   .sgrid_bg(0, 0, @rhythm);  // set horisontal lines on bg
   article{ 
     .row();
+    .equal_col_wrap();
     outline-top: 1px solid black;
     section {
       .col(2);
       .no_gaps;
       .col_left;
+      .equal_col();
       
       padding-top: @rhythm;
       //padding-bottom: @rhythm;
@@ -63,15 +65,15 @@ body{
       @color: 120;
       &:nth-of-type(1){ 
         border-top-color: #000;
-        background-color: hsla(1 * @color,100%,50%,0.5); 
+        background-color: hsla(1 * @color,100%,50%,0.3); 
       }
       &:nth-of-type(2){ 
         border-top-color: #333;
-        background-color: hsla(2 * @color,100%,50%,0.5); 
+        background-color: hsla(2 * @color,100%,50%,0.3); 
       }
       &:nth-of-type(3){ 
         border-top-color: #666;
-        background-color: hsla(3 * @color,100%,50%,0.5); 
+        background-color: hsla(3 * @color,100%,50%,0.3); 
       }
     }
   }
