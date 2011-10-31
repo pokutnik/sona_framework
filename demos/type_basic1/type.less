@@ -1,0 +1,28 @@
+body{
+  .type_body();
+  .type_headers(); 
+}
+
+article {
+    .fs(18px);
+    .line(18px);
+    .type_headers(38px, @rhythm, 18px);
+}
+
+section.headers{
+  .fs(24px, 18px); // specify font size from article
+  .line_em(24px, @rhythm);
+  .type_headers(72px, @rhythm, 24px);
+}
+
+
+// set border to see headers sizes
+h1,h2,h3,h4,h5,h6 {
+  border-left: 3px solid black; // border to see actual header height
+  padding-left: 5px;
+}
+pre{
+  border-left: 1px dashed gray; // decoration
+  padding-left: 1em;
+}
+p,h1,h2,h3,h4,h5,h6,pre { margin: @rhythm 0; }
