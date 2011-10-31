@@ -15,7 +15,7 @@
   //font-size: 1em * @_size / @_base_fs; // calculate em 
   
   @val: 1em * @_size / @_base_fs;
-  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(2)`;
+  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(3)`;
   font-size: 1em * @rounded;  
   
 }
