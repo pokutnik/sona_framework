@@ -36,7 +36,7 @@
   line-height: @_height * @l;
 }
 
-.line_em(@_size, @_height:@rhythm, @_base_fs: @base_fs){
+.line_em(@_size, @_height:@rhythm){
   @l1: @_size / @_height;
   @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
   @l: ~`Math.ceil(@{l2})`;
@@ -70,8 +70,7 @@
 .fs_mul(@ratio, @_height: @rhythm, @_base_fs:@base_fs){
   @size: @ratio*@_base_fs;
   .fs(@size, @_base_fs);
-//  .line_em(@size, @_base_fs);
-  .line_em(@size, @_height, @_base_fs);
+  .line_em(@size, @_height);
 }
 
 
