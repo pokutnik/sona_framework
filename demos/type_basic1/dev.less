@@ -1,0 +1,80 @@
+
+
+@rhythm: 20px; // setup vertical rhythm
+@base_fs: 16px; // setup base font size
+
+// Load Sona framework
+@setup_framework_path: "../../css/sona";
+@import "../../css/sona/util/install";
+@import "../../css/sona/sgrid/install";
+@import "../../css/sona/rhythm/install";
+@import "../../css/sona/reset/install";
+.normalize(); // reset
+
+@import "../../css/sona/type/install";
+
+body{
+  .type_body();
+  .type_headers(); 
+}
+
+article {
+    .fs(18px);
+    .line(18px);
+    .type_headers(38px, @rhythm, 18px);
+}
+
+section.headers{
+  .fs(24px, 18px); // specify font size from article
+  .line_em(24px, @rhythm);
+  .type_headers(72px, @rhythm, 24px);
+}
+
+
+// set border to see headers sizes
+h1,h2,h3,h4,h5,h6 {
+  border-left: 3px solid black; // border to see actual header height
+  padding-left: 5px;
+}
+pre{
+  border-left: 1px dashed gray; // decoration
+  padding-left: 1em;
+}
+p,h1,h2,h3,h4,h5,h6,pre { margin: @rhythm 0; }
+
+
+// layout
+.sgrid_setup(900px, 6, 20px);
+body{
+  .sgrid;
+  .sgrid_bg(0, 0, @rhythm);  // set horisontal lines on bg
+  article{ 
+    .row();
+    .equal_col_wrap();
+    outline-top: 1px solid black;
+    section {
+      .col(2);
+      .no_gaps;
+      .col_left;
+      .equal_col();
+      
+      border-width: @rhythm;
+      border-top-style: solid;
+      @color: 120;
+      &:nth-of-type(1){ 
+        border-top-color: #000;
+        background-color: hsla(1 * @color,100%,50%,0.3); 
+      }
+      &:nth-of-type(2){ 
+        border-top-color: #333;
+        background-color: hsla(2 * @color,100%,50%,0.3); 
+      }
+      &:nth-of-type(3){ 
+        border-top-color: #666;
+        background-color: hsla(3 * @color,100%,50%,0.3); 
+      }
+    }
+  }
+}
+
+

@@ -1,7 +1,12 @@
 
+// setup vertical rhythm
+@rhythm: 20px;
+// setup base font size
+@base_fs: 18px;
 
-@rhythm: 20px; // setup vertical rhythm
-@base_fs: 16px; // setup base font size
+@type-family: "Lucida Grande", Arial, sans-serif;
+@type-head-family: Helvetica, Arial, serif;
+ 
 
 // Load Sona framework
 @setup_framework_path: "../../css/sona";
@@ -9,72 +14,43 @@
 @import "../../css/sona/sgrid/install";
 @import "../../css/sona/rhythm/install";
 @import "../../css/sona/reset/install";
-.normalize(); // reset
 
 @import "../../css/sona/type/install";
 
+.normalize();
+
+.sgrid_setup(500px, 6, 20px);
 body{
-  .type_body();
-  .type_headers(); 
-}
-
-article {
-    .fs(18px);
-    .line(18px);
-    .type_headers(38px, @rhythm, 18px);
-}
-
-section.headers{
-  .fs(24px, 18px); // specify font size from article
-  .line_em(24px, @rhythm);
-  .type_headers(72px, @rhythm, 24px);
-}
+  .type_body(); // apply body fontsize in %
 
 
-// set border to see headers sizes
-h1,h2,h3,h4,h5,h6 {
-  border-left: 3px solid black; // border to see actual header height
-  padding-left: 5px;
-}
-pre{
-  border-left: 1px dashed gray; // decoration
-  padding-left: 1em;
-}
-p,h1,h2,h3,h4,h5,h6,pre { margin: @rhythm 0; }
+  .type_headers(32px); // set headers sizes from h1=32px to h6=base_fs (18px)
+//  .type_text();
+  p,h1,h2,h3,h4,h5,h6 { .reset_margins(); }
 
+  header {
+    .fs(12px); // change base fontsize;
+    .line_em(12px);
+    .type_headers(72px, @rhythm, 12px); // set headers sizes from h1=72px to h6=base_fs (12px)
 
-// layout
-.sgrid_setup(900px, 6, 20px);
-body{
-  .sgrid;
-  .sgrid_bg(0, 0, @rhythm);  // set horisontal lines on bg
-  article{ 
-    .row();
-    .equal_col_wrap();
-    outline-top: 1px solid black;
     section {
-      .col(2);
-      .no_gaps;
-      .col_left;
-      .equal_col();
-      
-      border-width: @rhythm;
-      border-top-style: solid;
-      @color: 120;
-      &:nth-of-type(1){ 
-        border-top-color: #000;
-        background-color: hsla(1 * @color,100%,50%,0.3); 
-      }
-      &:nth-of-type(2){ 
-        border-top-color: #333;
-        background-color: hsla(2 * @color,100%,50%,0.3); 
-      }
-      &:nth-of-type(3){ 
-        border-top-color: #666;
-        background-color: hsla(3 * @color,100%,50%,0.3); 
-      }
+        // redefine h1 fontsize in section 
+        h1 { 
+          .fs(24px, 12px);
+          .line_em(24px);
+        }
+        
+        border-left: 4px solid green;
+        .prepend(1);
     }
-  }
-}
 
+    border-left: 4px solid blue;
+    .prepend(1);
+  }
+
+  .sgrid;
+  border-left: 4px solid black;
+  .sgrid_bg(0, 0, @rhythm);  
+  
+}
 
