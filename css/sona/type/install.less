@@ -40,11 +40,11 @@
   @l1: @_size / @_height;
   @l2: ~`"@{l1}".match(/([\d.]+)/)[0]`;
   @l: ~`Math.ceil(@{l2})`;
-  
+
   //line-height: 1em * @_height * @l / @_size;
   // rounding
-  @val: 1em * @_height * @l / @_size;
-  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(2)`;
+  @val: 1em * @l * @_height / @_size ;
+  @rounded: ~`parseFloat("@{val}".match(/([\d.]+)/)[0]).toFixed(3)`;
   line-height: 1em * @rounded;  
 }
 
@@ -71,33 +71,33 @@
   @size: @ratio*@_base_fs;
   .fs(@size, @_base_fs);
 //  .line_em(@size, @_base_fs);
-  .line(@size);
+  .line_em(@size, @_height, @_base_fs);
 }
 
 
-.type_headers(@_max:48, @_base:@base_fs)
+.type_headers(@_max:48, @_height: @rhythm, @_base:@base_fs)
 {
     @a: ~`"@{_base}".match(/([\d.]+)/)[0]`;
     @b: ~`"@{_max}".match(/([\d.]+)/)[0]`;
     @k: ~`Math.pow(parseFloat(@{b}/@{a}), 0.2)`;
     
     h1 {
-      .fs_mul(1 * @k * @k * @k * @k * @k);
+      .fs_mul(1 * @k * @k * @k * @k * @k, @_height, @_base);
     }
     h2 { 
-      .fs_mul(1 * @k * @k * @k * @k);
+      .fs_mul(1 * @k * @k * @k * @k, @_height, @_base);
     }
     h3 { 
-      .fs_mul(1 * @k * @k * @k);
+      .fs_mul(1 * @k * @k * @k, @_height, @_base);
     }
     h4 { 
-      .fs_mul(1 * @k * @k);
+      .fs_mul(1 * @k * @k, @_height, @_base);
     }
     h5 { 
-      .fs_mul(1 * @k);
+      .fs_mul(1 * @k, @_height, @_base);
     }
     h6 { 
-      .fs_mul(1);
+      .fs_mul(1, @_height, @_base);
     }
 }
 

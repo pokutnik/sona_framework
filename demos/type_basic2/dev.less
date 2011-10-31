@@ -21,13 +21,13 @@ body{
 article {
     .fs(18px);
     .line(18px);
-    .type_headers(38px);
+    .type_headers(38px, @rhythm, 18px);
 }
 
 section.headers{
   .fs(24px, 18px); // specify font size from article
-  .line(24px);
-  .type_headers(72px);
+  .line_em(24px, @rhythm, 18px);
+  .type_headers(72px, @rhythm, 24px);
 }
 
 
