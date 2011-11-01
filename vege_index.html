@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sona Framework : Example using Less Framework to create responcive layout</title>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.js"></script>
+    
+    <!-- link sona grid system js files -->
+    <script src="js/sona/css.js"></script>
+    <script src="js/libs/less-1.1.3.js"></script>
+    <!-- link to enable auto styles refresh -->
+    <script src="js/sona/less-watch.js"></script>
+    <!-- include main dev.less file -->
+    <script>
+        css.load('css/basic.less', 'stylesheet/less', 'dev_css');
+    </script>
+</head>
+
+<body>
+    <header>
+    <h1>Responcive layout with Sona Framework</h1>
+    </header>
+
+    <section>
+        <article>
+            <h2>And Less Framework</h2>
+            <p>
+            This story started long time ago orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. 
+            </p>
+            <p>All of us were bambarduis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </article>
+
+        <aside>
+            <ul>
+                <li>Some notes</li>
+                <li>For your consideration</li>
+            </ul>
+        </aside>
+    </section>
+
+    <footer>
+        <h2>Popular boxes</h2>
+        <div class='popular p1'><h3>Popular 1</h3></div>
+        <div class='popular p2'><h3>Popular 2</h3></div>
+        <div class='popular p3'><h3>Popular 3</h3></div>
+        <div class='popular p4'><h3>Popular 4</h3></div>
+    </footer>
+
+</body>
+</html>
