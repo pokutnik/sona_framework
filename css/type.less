@@ -1,10 +1,13 @@
 body{
+  font-family: Arial, Helvetica, sans-serif;
+
+// to fix text resizing of IE6 and IE7
   .type_body();
-  .type_headers(); 
+
+// (opt) type h1 tag size here and Sona framework will calculate other h2 - h6 according to progressive scale, or delete it, so headings sizes will be set by default 
+  .type_headers(28px);
 }
 
-article {
-    .fs(18px);
-    .line(18px);
-    .type_headers(38px, @rhythm, 18px);
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, serif;
 }

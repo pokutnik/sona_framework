@@ -8,7 +8,7 @@
 //         |___/|_|         
 //
 
-// Type modyle have mixins to operate with fonts using css.
+// Type module have mixins to operate with fonts using css.
 //
 // Quick usage:
 //     @rhythm: 24px;    // 1) set @rhythm variable
@@ -78,7 +78,8 @@
 }
 
 //
-// .type_body -- apply this mixin to body element to set font-size in percent.
+// .type_body - apply this mixin to body element to set font-size in percent to fix text resizing of IE6 and IE7.
+//              More info: http://www.alistapart.com/articles/howtosizetextincss or http://kyleschaeffer.com/best-practices/css-font-size-em-vs-px-vs-pt-vs/        
 //
 // Example:
 //     @rhythm: 24px;
@@ -103,6 +104,7 @@
 }
 
 
+// 
 .type_headers(@_max:48, @_height: @rhythm, @_base:@base_fs)
 {
     @a: ~`"@{_base}".match(/([\d.]+)/)[0]`;
@@ -127,9 +129,4 @@
     h6 { 
       .fs_mul(1, @_height, @_base);
     }
-}
-
-.reset_margins() {
-  margin-top: 0; 
-  margin-bottom: 0;
 }
