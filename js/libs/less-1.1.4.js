@@ -2599,6 +2599,7 @@ function createCSS(styles, sheet, lastModified) {
             if (css.childNodes.length > 0) {
                 if (css.firstChild.nodeValue !== node.nodeValue) {
                     css.replaceChild(node, css.firstChild);
+                    window.StyleFix && window.StyleFix.styleElement(css);
                 }
             } else {
                 css.appendChild(node);
