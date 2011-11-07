@@ -2588,6 +2588,9 @@ function createCSS(styles, sheet, lastModified) {
         document.getElementsByTagName('head')[0].appendChild(css);
     }
 
+    // Allpy prefixfree to compiled styles
+    styles = window.StyleFix && window.StyleFix.fix(styles, true) || styles;
+
     if (css.styleSheet) { // IE
         try {
             css.styleSheet.cssText = styles;
@@ -2599,7 +2602,6 @@ function createCSS(styles, sheet, lastModified) {
             if (css.childNodes.length > 0) {
                 if (css.firstChild.nodeValue !== node.nodeValue) {
                     css.replaceChild(node, css.firstChild);
-                    window.StyleFix && window.StyleFix.styleElement(css);
                 }
             } else {
                 css.appendChild(node);
