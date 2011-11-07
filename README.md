@@ -4,8 +4,9 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 
  * `sona_gs` - Sona grid system. Allows you to create grid based layouts 
  * `rhythm` - toolbox for perfect vertycally alligned texts and boxes
- * `utils` - widely used helper functions like clearfix
+ * `type` - proper web typography module
  * `reset` - collection of CSS resets: `.normalize()`, `.reset_html5doctor()`, `.reset_mayer()`, `.reset_yui()`
+ * `utils` - widely used helper functions like clearfix
  * `lessframework` - adaptation of [Less Framework][lessframework] to create responcive layouts
  * in future some popular CSS frameworks
  
@@ -19,6 +20,7 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 1. Easy and flexible way to create grid based layout.
 2. Great local layout development enviroment. (Autoreloading styles, local webserver)
 3. Skeleton for creation responsible design
+4. Integration with [PrefixFree][prefixfree] 
 
 
 ## Quick Start
@@ -30,10 +32,10 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 2. Include sona less framework in your html
 
         <!-- link jQuery -->
-        <script src="js/libs/jquery-1.5.2.js"></script>
+        <script src="js/libs/jquery-1.6.4.js"></script>
         <!-- link sona framework's js files -->
         <script src="js/sona/css.js"></script>
-        <script src="js/libs/less-1.1.3.js"></script>
+        <script src="js/libs/less-1.1.4.js"></script>
         <!-- enable auto styles refresh -->
         <script src="js/sona/less-watch.js"></script>
         <!-- include main dev.less file -->
@@ -64,3 +66,5 @@ Released under MIT License.
 [less]: http://lesscss.org/ "Less CSS"
 [zip]: http://github.com/pokutnik/sona_framework/zipball/master "Sona framework ZIP archive"
 [lessframework]: http://lessframework.com/ "Less framework"
+[prefixfree]: http://leaverou.github.com/prefixfree/ "PrefixFree"
+
