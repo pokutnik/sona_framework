@@ -14,12 +14,12 @@ var cache = kizzy('grid');
       $('.toggle-grid .hide').hide();
 
       var show = function() {
-        $('#grid-overlay').slideDown('fast');
+        $('#grid-overlay').show();
         $('.toggle-grid .hide').show();
         $('.toggle-grid .show').hide();
         cache.set('show_grid', true);
       }, hide = function() {
-        $('#grid-overlay').slideUp('slow');
+        $('#grid-overlay').hide();
         $('.toggle-grid .hide').hide();
         $('.toggle-grid .show').show();
         cache.set('show_grid', false);
