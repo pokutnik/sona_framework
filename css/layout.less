@@ -14,11 +14,13 @@
 // Equal colums  
 // .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
 // .equal_col() ---  { padding-bottom:32767px; margin-bottom:-32767px;}
+//  .equal_col_remove() --- { padding-bottom: 0; margin-bottom: 0;}
 //
 // Shift, prepend, append  
 // .shift_right(@count) --- {left: @count * @width / @columns; position:relative;}, .shitf_left(@count)...
 // Shifts column to `@count` units use it in pair with floats to swap columns
 // .unshift() --- {left: 0; right: 0;} remove shift. Use it in mobile styles to remove shifts
+//
 // .prepend(@count, @fix: 0px) --- {margin-left: @count * @width / @columns + @fix;} margin left in columns
 // .append(@count, @fix: 0px) --- {margin-fight: @count * @width / @columns + @fix;} margin right in columns
 // .unprepend() --- {margin-left: 0;} .unappend() {margin-right: 0;}
@@ -33,7 +35,9 @@
 // .gaps() --- { padding-left: @gap_2; padding-right: @gap_2;}
 // .no_gaps() --- { padding-left: 0; padding-right: 0;}
 //
-// .fs(); for font-size changes,  
+// Fonts
+// .type_body(); to fix text resizing of IE6 and IE7 ??? I added it to the body is it right???
+// .fs(); for font size changes;  
 // font-family: 'WebSymbolsRegular'; nice font for icon replacement;  
 //
 // .border_box 
@@ -57,14 +61,16 @@
 
 body{
   .sgrid; // apply grid to body
+  .type_body();
   
   section {
+    font-family: 'WebSymbolsRegular';
     .col(5); // column 2col wide
     .left; // float colums left
     .no_gaps; // remove gaps
     .equal_col(); // set equal height to collums
   }
-  article{ 
+  article{
     .col(3);
 //    .row(); // create row
     .equal_col_wrap(); // wrap to make inner colums equal height
