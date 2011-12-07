@@ -4,31 +4,45 @@
 // .sgrid; to set grid, margin: 0 auto, .clearfix();
 // .col();
 // @unit*(1-12) eg: @unit*2 width equals .col(2) width +@gap; 
+// @rhythm line height variable
+//
 // .row() --- {.clearfix(); width: 100%; position:relative;} wraps columns
 // .clearfix(); 
 // .col_left() --- {float: left;} floats colunt left
 // .col_right() --- {margin-left: -5px; float: right;} floats colunt right
+//
+// Equal colums  
+// .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
+// .equal_col() ---  { padding-bottom:32767px; margin-bottom:-32767px;}
+//
+// Shift, prepend, append  
 // .shift_right(@count) --- {left: @count * @width / @columns; position:relative;}, .shitf_left(@count)...
 // Shifts column to `@count` units use it in pair with floats to swap columns
 // .unshift() --- {left: 0; right: 0;} remove shift. Use it in mobile styles to remove shifts
 // .prepend(@count, @fix: 0px) --- {margin-left: @count * @width / @columns + @fix;} margin left in columns
 // .append(@count, @fix: 0px) --- {margin-fight: @count * @width / @columns + @fix;} margin right in columns
 // .unprepend() --- {margin-left: 0;} .unappend() {margin-right: 0;}
-
+//
 // .fs(); for font-size changes,  
 // font-family: 'WebSymbolsRegular'; nice font for icon replacement;  
-
-
+//
+// .border_box 
 // .fl();
 // .fr();
+//
+// Reset
 // .list_reset();
+// Decor
 // .triangle;
 // .light_text_shadow(50%);
-
+// .dark_text_shadow (@opacity:50%)
+//
+// CSS 3
 // We use Prefixr for CSS3 styles, so you need to type only oficial variant and vendor prefixes would be added automaticly. Eg:
 // background-image: linear-gradient(center top , #eee 99%, #fff);
 
-@triangle_color: #006000;
+// VARIARBLES
+@triangle_color: #006000; // change but !!! dont delete
 
 
 body{
@@ -36,7 +50,7 @@ body{
   
   section {
     .col(5); // column 2col wide
-    .col_left; // float colums left
+    .left; // float colums left
     .no_gaps; // remove gaps
     .equal_col(); // set equal height to collums
   }

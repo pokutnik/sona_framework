@@ -8,6 +8,7 @@
 // in our case maximun amount of colums is 12
 // Example: if we have .sgrid_setup(984px (width), 12 (number of colums), 24px (gap)); in layout.less
 // and will assign .col(3); to random tag we will get element with {padding-left: 12px; padding-right: 12px; width: 222px;}
+// or use @unit*(1-12) eg: @unit*2 width equals .col(2) width +@gap;
 
 // FONT SIZE redefining 
 //
@@ -22,7 +23,7 @@
 // use .line_em(...px); if you want to set line-height in "em"; Notice: the same as for .line(...px);
 // or use @rhythm variable, its very easy to mantain vertical rhythm using it, you can do whatever math you want to change its value. Example: line-height: @rhythm*2; would change line-height value to 42px if vertical rhythm is 21px.  
 
-// USEFULL MIXINS
+//   USEFULL MIXINS
 //
 // WRAP
 //  .row(); --- { .util_clearfix(); width: 100%; position: relative;}
@@ -31,7 +32,21 @@
 //  .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
 //  .equal_col() ---  { padding-bottom:32767px; margin-bottom:-32767px;}
 //
-
+// SHIFT, PREPEND, APPEND  
+// .shift_right(@count) --- {left: @count * @width / @columns; position:relative;}, .shitf_left(@count)...
+// Shifts column to `@count` units use it in pair with floats to swap columns
+// .unshift() --- {left: 0; right: 0;} remove shift. Use it in mobile styles to remove shifts
+// .prepend(@count, @fix: 0px) --- {margin-left: @count * @width / @columns + @fix;} margin left in columns
+// .append(@count, @fix: 0px) --- {margin-fight: @count * @width / @columns + @fix;} margin right in columns
+// .unprepend() --- {margin-left: 0;} .unappend() {margin-right: 0;}
+//
+// COLUMNS FLOAT 
+// .left() --- {float: left;} floats colunt left
+// .right() --- {margin-left: -5px; float: right;} floats colunt right
+//
+// TO ADD OR DELETE GAPS
+// .gaps(){ padding-left: @gap_2; padding-right: @gap_2;}
+// .no_gaps(){ padding-left: 0; padding-right: 0;}
 
 // HERE WE DEFINE SOME MORE USEFULL MIXINS:
 
