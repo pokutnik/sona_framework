@@ -31,6 +31,7 @@
 // EQUAL COLUMS
 //  .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
 //  .equal_col() ---  { padding-bottom:32767px; margin-bottom:-32767px;}
+//  .equal_col_remove() --- { padding-bottom: 0; margin-bottom: 0;}
 //
 // SHIFT, PREPEND, APPEND  
 // .shift_right(@count) --- {left: @count * @width / @columns; position:relative;}, .shitf_left(@count)...
@@ -40,13 +41,20 @@
 // .append(@count, @fix: 0px) --- {margin-fight: @count * @width / @columns + @fix;} margin right in columns
 // .unprepend() --- {margin-left: 0;} .unappend() {margin-right: 0;}
 //
+// PULL, PUSH, RIZE, SINC
+// .pull(@step, @fix: 0px) --- { margin-top: @step * @rhythm + @fix;} 
+// .push(@step, @fix: 0px) --- { margin-bottom: @step * @rhythm + @fix;}
+// .rise(@step, @fix: 0px) --- { margin-top: - @step * @rhythm + @fix;}
+// .sink(@step, @fix: 0px) --- { margin-bottom: @step * @rhythm + @fix;}
+
+//
 // COLUMNS FLOAT 
 // .left() --- {float: left;} floats colunt left
 // .right() --- {margin-left: -5px; float: right;} floats colunt right
 //
 // TO ADD OR DELETE GAPS
-// .gaps(){ padding-left: @gap_2; padding-right: @gap_2;}
-// .no_gaps(){ padding-left: 0; padding-right: 0;}
+// .gaps() --- { padding-left: @gap_2; padding-right: @gap_2;}
+// .no_gaps() --- { padding-left: 0; padding-right: 0;}
 
 // HERE WE DEFINE SOME MORE USEFULL MIXINS:
 

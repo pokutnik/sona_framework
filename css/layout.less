@@ -8,8 +8,8 @@
 //
 // .row() --- {.clearfix(); width: 100%; position:relative;} wraps columns
 // .clearfix(); 
-// .col_left() --- {float: left;} floats colunt left
-// .col_right() --- {margin-left: -5px; float: right;} floats colunt right
+// .left() --- {float: left;} floats colunt left
+// .right() --- {margin-left: -5px; float: right;} floats colunt right
 //
 // Equal colums  
 // .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
@@ -22,6 +22,16 @@
 // .prepend(@count, @fix: 0px) --- {margin-left: @count * @width / @columns + @fix;} margin left in columns
 // .append(@count, @fix: 0px) --- {margin-fight: @count * @width / @columns + @fix;} margin right in columns
 // .unprepend() --- {margin-left: 0;} .unappend() {margin-right: 0;}
+//
+// Pull, push, rize, sink
+// .pull(@step, @fix: 0px) { margin-top: @step * @rhythm + @fix;}
+// .push(@step, @fix: 0px) { margin-bottom: @step * @rhythm + @fix;}
+// .rise(@step, @fix: 0px) { margin-top: - @step * @rhythm + @fix;}
+// .sink(@step, @fix: 0px) { margin-bottom: @step * @rhythm + @fix;}
+//
+// To add or delete gaps
+// .gaps() --- { padding-left: @gap_2; padding-right: @gap_2;}
+// .no_gaps() --- { padding-left: 0; padding-right: 0;}
 //
 // .fs(); for font-size changes,  
 // font-family: 'WebSymbolsRegular'; nice font for icon replacement;  
