@@ -14,10 +14,11 @@
 // Equal colums  
 // .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
 // .equal_col() ---  { padding-bottom:32767px; margin-bottom:-32767px;}
-//  .equal_col_remove() --- { padding-bottom: 0; margin-bottom: 0;}
+// .equal_col_remove() --- { padding-bottom: 0; margin-bottom: 0;}
 //
 // Shift, prepend, append  
-// .shift_right(@count) --- {left: @count * @width / @columns; position:relative;}, .shitf_left(@count)...
+// .shift_right(@count) --- {left: @count * @width / @columns; position:relative;},
+// .shitf_left(@count)...
 // Shifts column to `@count` units use it in pair with floats to swap columns
 // .unshift() --- {left: 0; right: 0;} remove shift. Use it in mobile styles to remove shifts
 //
@@ -93,21 +94,40 @@ body {
 .main_nav_list {
   .sgrid();
   padding: @rhythm 0; // for example: you can add padding in half of rhythm = padding: @rhythm/2, but in out case it would be better to use padding: 10px 0 11px; because @rhythm = 21px (basic.less); and different browsers can round 21px/2 differently   
-    
-  li {
+  
+      // including li{} into .main_nav_list{} will give .main_nav_list li {}—this is less.js property  
+  li { 
     display: inline;
   }
 }
 // /NAV
-section {
-  .col(5); // column 2col wide
-  .left; // float colums left
-  .no_gaps; // remove gaps
-  .equal_col(); // set equal height to collums
+
+// CONTENT
+
+.ind_content {
+  .sgrid();
 }
-article {
-  .col(3);
-//  .row(); // create row
+
+.ind_something_with_two_columns_in_it {
+  .sgrid(); // column 2col wide
   .equal_col_wrap(); // wrap to make inner colums equal height
-}
- 
+
+  article {
+    .col(8); // column 2col wide
+    .left();    
+    .shift_right(4);
+  }
+  
+  aside {
+    background-color: #eee;
+    .col(4);
+    .equal_col(); // set equal height to collums
+    .left();
+    .shitf_left(8);
+    
+    ul {
+      .list_reset();
+    }
+  }
+}  
+// /CONTENT 
