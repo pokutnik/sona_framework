@@ -69,9 +69,9 @@
 // DESIGN MIXINS
 // .opacity(@opacity) makes element opaque adds ms-filter 
 
-.triangle {
+.triangle(@color: @triangle_color) { // if you type .triangle in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less  
     border-bottom: 3px solid transparent;
-    border-left: 6px solid @triangle_color; //you can change its color in layout.less
+    border-left: 6px solid @color; //you can change its color in layout.less
     border-top: 3px solid transparent;
     display: inline-block;
     vertical-align: 8%;
