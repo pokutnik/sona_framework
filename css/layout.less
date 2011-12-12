@@ -66,19 +66,48 @@
 @semi_black: rgba(0,0,0,0.5);
 @semi_white: rgba(255,255,255,0.5);
 
-body{
-  .sgrid; // apply grid to body
-  .type_body();
-  
-  section {
-    .col(5); // column 2col wide
-    .left; // float colums left
-    .no_gaps; // remove gaps
-    .equal_col(); // set equal height to collums
-  }
-  article{
-    .col(3);
-//    .row(); // create row
-    .equal_col_wrap(); // wrap to make inner colums equal height
-  }
+body {
+//  .sgrid; // apply grid to body
+  .type_body(); // changes body font size for IE6/7 
 }  
+
+// HEADER
+.main_header_wrapper {
+  .border_box();
+  border-bottom: 2px solid #999;
+  height: @rhythm*4;  
+}
+
+.main_header {
+  .sgrid();
+  padding-top: @rhythm;  
+}
+
+.main_logo {
+  .fs(32px);
+  line-height: @rhythm*2;
+}
+// /HEADER
+
+// NAV
+.main_nav_list {
+  .sgrid();
+  padding: @rhythm 0; // for example: you can add padding in half of rhythm = padding: @rhythm/2, but in out case it would be better to use padding: 10px 0 11px; because @rhythm = 21px (basic.less); and different browsers can round 21px/2 differently   
+    
+  li {
+    display: inline;
+  }
+}
+// /NAV
+section {
+  .col(5); // column 2col wide
+  .left; // float colums left
+  .no_gaps; // remove gaps
+  .equal_col(); // set equal height to collums
+}
+article {
+  .col(3);
+//  .row(); // create row
+  .equal_col_wrap(); // wrap to make inner colums equal height
+}
+ 
