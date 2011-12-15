@@ -29,7 +29,7 @@
 //   USEFULL MIXINS
 //
 // WRAP
-//  .row(); --- { .util_clearfix(); width: 100%; position: relative;} wraps columns
+//  .row(); --- { .util_clearfix(); width: 100%;} wraps columns
 //
 // EQUAL COLUMS
 //  .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
@@ -50,14 +50,9 @@
 // .rise(@step, @fix: 0px) --- { margin-top: - @step * @rhythm + @fix;}
 // .sink(@step, @fix: 0px) --- { margin-bottom: - @step * @rhythm + @fix;}
 
-//
 // COLUMNS FLOAT 
 // .left() --- {float: left;} floats colunt left
 // .right() --- {margin-left: -5px; float: right;} floats colunt right
-//
-// TO ADD OR DELETE GAPS
-// .gaps() --- { padding-left: @gap_2; padding-right: @gap_2;}
-// .no_gaps() --- { padding-left: 0; padding-right: 0;}
 
 // HERE WE DEFINE SOME MORE USEFULL MIXINS:
 
@@ -72,9 +67,11 @@
 }
 
 // DESIGN MIXINS
-.triangle {
+// .opacity(@opacity) makes element opaque adds ms-filter 
+
+.triangle(@color: @triangle_color) { // if you type .triangle in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less  
     border-bottom: 3px solid transparent;
-    border-left: 6px solid @triangle_color; //you can change its color in layout.less
+    border-left: 6px solid @color; //you can change its color in layout.less
     border-top: 3px solid transparent;
     display: inline-block;
     vertical-align: 8%;

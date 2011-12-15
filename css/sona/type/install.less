@@ -109,25 +109,25 @@
 {
     @a: ~`"@{_base}".match(/([\d.]+)/)[0]`;
     @b: ~`"@{_max}".match(/([\d.]+)/)[0]`;
-    @k: ~`Math.pow(parseFloat(@{b}/@{a}), 0.2)`;
+    @k: ~`Math.pow(parseFloat(@{b}/@{a}), 1/6)`;
     
     h1 {
-      .fs_mul(1 * @k * @k * @k * @k * @k, @_height, @_base);
+      .fs_mul(1 * @k * @k * @k * @k * @k * @k, @_height, @_base);
     }
     h2 { 
-      .fs_mul(1 * @k * @k * @k * @k, @_height, @_base);
+      .fs_mul(1 * @k * @k * @k * @k * @k, @_height, @_base);
     }
     h3 { 
-      .fs_mul(1 * @k * @k * @k, @_height, @_base);
+      .fs_mul(1 * @k * @k * @k * @k, @_height, @_base);
     }
     h4 { 
-      .fs_mul(1 * @k * @k, @_height, @_base);
+      .fs_mul(1 * @k * @k * @k, @_height, @_base);
     }
     h5 { 
-      .fs_mul(1 * @k, @_height, @_base);
+      .fs_mul(1 * @k * @k, @_height, @_base);
     }
     h6 { 
-      .fs_mul(1, @_height, @_base);
+      .fs_mul(1 * @k, @_height, @_base);
     }
     h1, h2, h3, h4, h5, h6 {
       margin-top: @_height;

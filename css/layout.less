@@ -6,7 +6,7 @@
 // @unit*(1-12) eg: @unit*2 width equals .col(2) width +@gap; 
 // @rhythm line height variable
 //
-// .row() --- {.clearfix(); width: 100%; position:relative;} wraps columns
+// .row() --- {.clearfix(); width: 100%;} wraps columns
 // .clearfix(); 
 // .left() --- {float: left;} floats colunt left
 // .right() --- {margin-left: -5px; float: right;} floats colunt right
@@ -14,10 +14,11 @@
 // Equal colums  
 // .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
 // .equal_col() ---  { padding-bottom:32767px; margin-bottom:-32767px;}
-//  .equal_col_remove() --- { padding-bottom: 0; margin-bottom: 0;}
+// .equal_col_remove() --- { padding-bottom: 0; margin-bottom: 0;}
 //
 // Shift, prepend, append  
-// .shift_right(@count) --- {left: @count * @width / @columns; position:relative;}, .shitf_left(@count)...
+// .shift_right(@count) --- {left: @count * @width / @columns; position:relative;},
+// .shitf_left(@count)...
 // Shifts column to `@count` units use it in pair with floats to swap columns
 // .unshift() --- {left: 0; right: 0;} remove shift. Use it in mobile styles to remove shifts
 //
@@ -30,10 +31,6 @@
 // .push(@step, @fix: 0px) { margin-bottom: @step * @rhythm + @fix;}
 // .rise(@step, @fix: 0px) { margin-top: - @step * @rhythm + @fix;}
 // .sink(@step, @fix: 0px) { margin-bottom: - @step * @rhythm + @fix;}
-//
-// To add or delete gaps
-// .gaps() --- { padding-left: @gap_2; padding-right: @gap_2;}
-// .no_gaps() --- { padding-left: 0; padding-right: 0;}
 //
 // Fonts
 // .type_body(); to fix text resizing of IE6 and IE7
@@ -66,19 +63,77 @@
 @semi_black: rgba(0,0,0,0.5);
 @semi_white: rgba(255,255,255,0.5);
 
-body{
-  .sgrid; // apply grid to body
-  .type_body();
+body {
+  .type_body(); // changes body font size for IE6/7 
+}  
+
+// HEADER
+.main_header_wrapper {
+  .border_box();
+  border-bottom: 2px solid #999;
+  height: @rhythm*4;  
+}
+
+.main_header {
+  .sgrid();
+  padding-top: @rhythm;  
+}
+
+.main_logo {
+  .fs(32px);
+  line-height: @rhythm*2;
+}
+// /HEADER
+
+// NAV
+.main_nav_list {
+  .sgrid();
+  padding: @rhythm 0; // for example: you can add padding in half of rhythm = padding: @rhythm/2, but in out case it would be better to use padding: 10px 0 11px; because @rhythm = 21px (basic.less); and different browsers can round 21px/2 differently   
   
-  section {
-    .col(5); // column 2col wide
-    .left; // float colums left
-    .no_gaps; // remove gaps
-    .equal_col(); // set equal height to collums
+      // including li{} into .main_nav_list{} will give .main_nav_list li {}—this is less.js property  
+  li { 
+    display: inline;
   }
-  article{
-    .col(3);
-//    .row(); // create row
-    .equal_col_wrap(); // wrap to make inner colums equal height
+}
+// /NAV
+
+// CONTENT
+
+.ind_content {
+  .sgrid();
+}
+
+.ind_something_with_two_columns_in_it {
+  .sgrid(); // column 2col wide
+  .equal_col_wrap(); // wrap to make inner colums equal height
+
+  article {
+    .col(8); // column 2col wide
+    .left();    
+    .shift_right(4);
+  }
+  
+  aside {
+    background-color: #eee;
+    .col(4);
+    .equal_col(); // set equal height to collums
+    .left();
+    .shitf_left(8);
+    
+    ul {
+      .list_reset();
+    }
   }
 }  
+// /CONTENT 
+
+// FOOTER
+.main_footer_wrapper {
+  background-color: #ccc;
+  margin-top: @rhythm*2;
+}
+
+.main_footer {
+  .sgrid();
+}
+// /FOOTER
