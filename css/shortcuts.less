@@ -67,19 +67,162 @@
 }
 
 // DESIGN MIXINS
+
 // .opacity(@opacity) makes element opaque adds ms-filter 
 
-.triangle(@color: @triangle_color) { // if you type .triangle in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less  
-    border-bottom: 3px solid transparent;
-    border-left: 6px solid @color; //you can change its color in layout.less
-    border-top: 3px solid transparent;
+// Triangle mixin: if you want to change default values of triangel figures type for example: .triangle_right(#444, 10px, 5px) where #444—color change, 10px—changes colored side of triange, 5px—change transparent sides size;
+.triangle_right(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px) { // if you type .triangle_right in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less  
+    border-bottom: @triangle_trans_size solid transparent;
+    border-top: @triangle_trans_size solid transparent;
+    border-left: @triangle_colored_size solid @color; //you can change its color in layout.less
     display: inline-block;
     vertical-align: 8%;
     padding-right: 4px;
-    height: 0;
-    width: 0;
+    .size(0,0)
+}
+
+.triangle_left(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px){
+    border-top: @triangle_trans_size solid transparent;
+    border-bottom: @triangle_trans_size solid transparent;
+    border-right: @triangle_colored_size solid @color; 
+    display: inline-block;
+    vertical-align: 8%;
+    padding-left: 4px;
+    .size(0,0)        
+}
+
+.triangle_up(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px) {   
+    border-right: @triangle_trans_size solid transparent;
+    border-left: @triangle_trans_size solid transparent;
+    border-bottom: @triangle_colored_size solid @color;
+    .size(0,0);
+}
+
+.triangle_down(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px) {   
+    border-right: @triangle_trans_size solid transparent;
+    border-left: @triangle_trans_size solid transparent;
+    border-top:  @triangle_colored_size solid @color;
+    .size(0,0);
 }
 
 // DECOR 
 .light_text_shadow (@opacity:50%){ text-shadow: 0px 1px 0px fadeout(#fff, @opacity);}
 .dark_text_shadow (@opacity:50%){ text-shadow: 0px 1px 0px fadeout(#000, @opacity);}
+
+// /DECOR
+
+// LATEST MIXINS
+// SIZING
+.size(@height: 5px, @width: 5px) {
+  height: @height;
+  width: @width;
+}
+.square(@size: 5px) {
+  .size(@size, @size);
+}
+
+// FONT FALLBACK
+.sans_family {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.serif_family {
+  font-family: "Georgia", Times New Roman, Times, serif;
+}
+
+// BUTTONS
+@button_color: #B5CDFC;
+@button_hover: #056012;
+
+.button_mixin() {
+//  background-color: darken(@button_color, 10%);
+  background-image: linear-gradient(top, @button_color, darken(@button_color, 2%) 10%, darken(@button_color, 7%) 90%, darken(@button_color, 13%)); 
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 14px 6px;
+  text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  color: #333;
+  border: 1px solid darken(@button_color, 27%);
+  border-top-color: darken(@button_color, 20%);
+  border-bottom-color: darken(@button_color, 33%);
+  border-radius: 4px;
+  @button_shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.1);
+  box-shadow: @button_shadow;
+  
+  &:hover {
+    color: @button_hover;
+    border-color: lighten(@button_hover, 10%);
+    border-top-color: lighten(@button_hover, 15%);
+    border-bottom-color: lighten(@button_hover, 5%);
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    outline: 1px dotted #666;
+  }
+
+   // Transitions
+  transition: all 0.1s linear;
+
+  // Active and Disabled states
+  &.active,
+  &:active {
+    @button_shadow: inset 0 2px 4px rgba(0,0,0,.25), 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: @button_shadow;
+  }
+  &.disabled {
+    cursor: default;
+    background-image: none;
+/*    .reset-filter(); */
+    .opacity(65);
+    box-shadow: none;
+  }
+  &[disabled] {
+    // disabled pseudo can't be included with .disabled
+    // def because IE8 and below will drop it ;_;
+    cursor: default;
+    background-image: none;
+/*    .reset-filter(); */
+    .opacity(65);
+    box-shadow: none;
+  }
+
+  // Button Sizes
+  &.big {
+    font-size: @base_fs + 3px;
+    line-height: @rhythm;
+    padding: @rhythm/2 @gap; 
+//    padding: 9px 14px 9px;
+    border-radius: 6px;
+  }
+  
+  &.medium {
+//    line-height: @rhythm*0.4;
+    padding: @rhythm/4 @gap/2; 
+//    padding: 5px 14px 9px;
+  }
+  
+  &.small {
+    padding: 0 @gap/2;
+    font-size: @base_fs - 3px;
+  }
+}
+// Super jank hack for removing border-radius from IE9 so we can keep filter gradients on alerts and buttons
+:root /*.alert-message*/,
+:root .button {
+  border-radius: 0 \0;
+}
+
+// Help Firefox not be a jerk about adding extra padding to buttons
+button.button,
+input[type=submit].button {
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+}
+
+.button {
+  .button_mixin();
+}
+

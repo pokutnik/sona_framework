@@ -44,10 +44,16 @@
 // Reset
 // .list_reset();
 // Decor
-// .triangle;
 // .light_text_shadow(50%);
 // .dark_text_shadow (@opacity:50%)
 //
+// Figures
+// .triangle_right(color, colored side size, transparent side size) eg: .triangle_right(blue,10px,5px) or .triangle_right() - for triangle with default styles;
+// .triangle_left, .triangle_up, .triangle_down;
+// .triangle_left and .triangle_right have additional styles, such as { display: inline-block; vertical-align: 8%; padding-left: 4px; because now I usualy use this two triangles with such styles, but I'll separate this 3 styles in aditional mixin soon (if there will be such necessity) 
+//
+// Sizing
+// .size(5px,10px) = .size {height:5px; width:}
 // CSS 3 samples
 // We use Prefixr for CSS3 styles, so you need to type only oficial variant and vendor prefixes would be added automaticly. Eg:
 // background-image: linear-gradient(top, #444444, #999999);
