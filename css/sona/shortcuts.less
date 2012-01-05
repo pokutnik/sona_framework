@@ -71,17 +71,17 @@
 // .opacity(@opacity) makes element opaque adds ms-filter
 
 // Triangle mixin: if you want to change default values of triangel figures type for example: .triangle_right(#444, 10px, 5px) where #444—color change, 10px—changes colored side of triange, 5px—change transparent sides size;
-.triangle_right(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px) { // if you type .triangle_right in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less
-    border-bottom: @triangle_trans_size solid transparent;
-    border-top: @triangle_trans_size solid transparent;
-    border-left: @triangle_colored_size solid @color; //you can change its color in layout.less
+.triangle_right_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) { // if you type .triangle_right in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less  
+    border-bottom: @_triangle_trans_size solid transparent;
+    border-top: @_triangle_trans_size solid transparent;
+    border-left: @_triangle_colored_size solid @color; //you can change its color in layout.less
     display: inline-block;
     vertical-align: 8%;
     padding-right: 4px;
     .size(0,0)
 }
 
-.triangle_left(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px){
+.triangle_left_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size){
     border-top: @triangle_trans_size solid transparent;
     border-bottom: @triangle_trans_size solid transparent;
     border-right: @triangle_colored_size solid @color;
@@ -91,18 +91,34 @@
     .size(0,0)
 }
 
-.triangle_up(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px) {
+.triangle_up_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) {   
     border-right: @triangle_trans_size solid transparent;
     border-left: @triangle_trans_size solid transparent;
     border-bottom: @triangle_colored_size solid @color;
     .size(0,0);
 }
 
-.triangle_down(@color: @triangle_color, @triangle_colored_size: 12px, @triangle_trans_size: 6px) {
+.triangle_down_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) {   
     border-right: @triangle_trans_size solid transparent;
     border-left: @triangle_trans_size solid transparent;
     border-top:  @triangle_colored_size solid @color;
     .size(0,0);
+}
+
+.triangle_right {
+  .triangle_right_mixin();
+}
+
+.triangle_left {
+  .triangle_left_mixin();
+}
+
+.triangle_up {
+  .triangle_up_mixin();
+}
+
+.triangle_down {
+  .triangle_down_mixin();
 }
 
 // DECOR
@@ -131,7 +147,7 @@
 }
 
 // BUTTONS
-@button_color: #B5CDFC;
+@button_color: #d24534;
 @button_hover: #056012;
 
 .button_mixin() {
@@ -141,6 +157,7 @@
   display: inline-block;
   padding: 5px 14px 6px;
   text-shadow: 0 1px 1px rgba(255,255,255,.75);
+  text-decoration: none;
   color: #333;
   border: 1px solid darken(@button_color, 27%);
   border-top-color: darken(@button_color, 20%);
@@ -189,7 +206,7 @@
 
   // Button Sizes
   &.big {
-    font-size: @base_fs + 3px;
+    font-size: @base_fs + 5px;
     line-height: @rhythm;
     padding: @rhythm/2 @gap;
 //    padding: 9px 14px 9px;
