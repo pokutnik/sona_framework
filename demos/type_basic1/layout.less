@@ -3,32 +3,32 @@
 body{
   .sgrid; // apply grid to body
   .sgrid_bg(0, 0, @rhythm);  // set horisontal lines on bg
-  article{ 
+  article{
     .row(); // create row
     .equal_col_wrap(); // wrap to make inner colums equal height
     outline-top: 1px solid black;
     section {
       .col(2); // column 2col wide
-      .col_left; // float colums left
+      .fl; // float colums left
       .no_gaps; // remove gaps
       .equal_col(); // set equal height to collums
-      
+
       border-width: @rhythm;
       border-top-style: solid;
       @color: 120;
 
       //  change color of top border and background
-      &:nth-of-type(1){ 
+      &:nth-of-type(1){
         border-top-color: #000;
-        background-color: hsla(1 * @color,100%,50%,0.3); 
+        background-color: hsla(1 * @color,100%,50%,0.3);
       }
-      &:nth-of-type(2){ 
+      &:nth-of-type(2){
         border-top-color: #333;
-        background-color: hsla(2 * @color,100%,50%,0.3); 
+        background-color: hsla(2 * @color,100%,50%,0.3);
       }
-      &:nth-of-type(3){ 
+      &:nth-of-type(3){
         border-top-color: #666;
-        background-color: hsla(3 * @color,100%,50%,0.3); 
+        background-color: hsla(3 * @color,100%,50%,0.3);
       }
     }
   }
