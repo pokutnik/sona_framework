@@ -80,7 +80,6 @@
     padding-right: 4px;
     .size(0,0)
 }
-
 .triangle_left_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size){
     border-top: @triangle_trans_size solid transparent;
     border-bottom: @triangle_trans_size solid transparent;
@@ -104,6 +103,9 @@
     border-top:  @triangle_colored_size solid @color;
     .size(0,0);
 }
+@triangle_color: #666;
+@triangle_colored_size: 12px;
+@triangle_trans_size: 6px;
 
 .triangle_right {
   .triangle_right_mixin();
