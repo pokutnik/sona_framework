@@ -57,12 +57,12 @@
 // HERE WE DEFINE SOME MORE USEFULL MIXINS:
 
 //LAYOUT MIXINS
-.border_box { box-sizing: border-box;}
-.fl { float: left;}
-.fr { float: right;}
+.border_box() { box-sizing: border-box;}
+.fl() { float: left;}
+.fr() { float: right;}
 
 // RESET MIXIN
-.list_reset { margin: 0; padding: 0;
+.list_reset() { margin: 0; padding: 0;
   li { list-style: none;}
 }
 
@@ -122,11 +122,11 @@
 }
 
 // FONT FALLBACK
-.sans_family {
+.sans_family() {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.serif_family {
+.serif_family() {
   font-family: "Georgia", Times New Roman, Times, serif;
 }
 
