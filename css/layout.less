@@ -3,20 +3,20 @@
 // TIPS
 // .sgrid; to set grid, margin: 0 auto, .clearfix();
 // .col();
-// @unit*(1-12) eg: @unit*2 width equals .col(2) width +@gap; 
+// @unit*(1-12) eg: @unit*2 width equals .col(2) width +@gap;
 // @rhythm line height variable
 //
 // .row() --- {.clearfix(); width: 100%;} wraps columns
-// .clearfix(); 
+// .clearfix();
 // .left() --- {float: left;} floats colunt left
 // .right() --- {margin-left: -5px; float: right;} floats colunt right
 //
-// Equal colums  
+// Equal colums
 // .equal_col_wrap(); --- { overflow: hidden; display:block; position:relative;}
 // .equal_col() ---  { padding-bottom:32767px; margin-bottom:-32767px;}
 // .equal_col_remove() --- { padding-bottom: 0; margin-bottom: 0;}
 //
-// Shift, prepend, append  
+// Shift, prepend, append
 // .shift_right(@count) --- {left: @count * @width / @columns; position:relative;},
 // .shitf_left(@count)...
 // Shifts column to `@count` units use it in pair with floats to swap columns
@@ -34,10 +34,10 @@
 //
 // Fonts
 // .type_body(); to fix text resizing of IE6 and IE7
-// .fs(); for font size changes;  
-// font-family: 'WebSymbolsRegular'; nice font for icon replacement;  
+// .fs(); for font size changes;
+// font-family: 'WebSymbolsRegular'; nice font for icon replacement;
 //
-// .border_box 
+// .border_box
 // .fl();
 // .fr();
 //
@@ -50,7 +50,7 @@
 // Figures
 // .triangle_right(color, colored side size, transparent side size) eg: .triangle_right(blue,10px,5px) or .triangle_right() - for triangle with default styles;
 // .triangle_left, .triangle_up, .triangle_down;
-// .triangle_left and .triangle_right have additional styles, such as { display: inline-block; vertical-align: 8%; padding-left: 4px; because now I usualy use this two triangles with such styles, but I'll separate this 3 styles in aditional mixin soon (if there will be such necessity) 
+// .triangle_left and .triangle_right have additional styles, such as { display: inline-block; vertical-align: 8%; padding-left: 4px; because now I usualy use this two triangles with such styles, but I'll separate this 3 styles in aditional mixin soon (if there will be such necessity)
 //
 // Sizing
 // .size(5px,10px) = .size {height:5px; width:}
@@ -70,19 +70,19 @@
 @semi_white: rgba(255,255,255,0.5);
 
 body {
-  .type_body(); // changes body font size for IE6/7 
-}  
+  .type_body(); // changes body font size for IE6/7
+}
 
 // HEADER
 .main_header_wrapper {
   .border_box();
   border-bottom: 2px solid #999;
-  height: @rhythm*4;  
+  height: @rhythm*4;
 }
 
 .main_header {
   .sgrid();
-  padding-top: @rhythm;  
+  padding-top: @rhythm;
 }
 
 .main_logo {
@@ -94,10 +94,10 @@ body {
 // NAV
 .main_nav_list {
   .sgrid();
-  padding: @rhythm 0; // for example: you can add padding in half of rhythm = padding: @rhythm/2, but in out case it would be better to use padding: 10px 0 11px; because @rhythm = 21px (basic.less); and different browsers can round 21px/2 differently   
-  
-      // including li{} into .main_nav_list{} will give .main_nav_list li {}—this is less.js property  
-  li { 
+  padding: @rhythm 0; // for example: you can add padding in half of rhythm = padding: @rhythm/2, but in out case it would be better to use padding: 10px 0 11px; because @rhythm = 21px (basic.less); and different browsers can round 21px/2 differently
+
+      // including li{} into .main_nav_list{} will give .main_nav_list li {}—this is less.js property
+  li {
     display: inline;
   }
 }
@@ -115,23 +115,23 @@ body {
 
   article {
     .col(8); // column 2col wide
-    .left();    
+    .left();
     .shift_right(4);
   }
-  
+
   aside {
     background-color: #eee;
     .col(4);
     .equal_col(); // set equal height to collums
     .left();
     .shitf_left(8);
-    
+
     ul {
       .list_reset();
     }
   }
-}  
-// /CONTENT 
+}
+// /CONTENT
 
 // FOOTER
 .main_footer_wrapper {
