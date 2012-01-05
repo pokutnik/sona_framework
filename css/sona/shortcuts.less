@@ -71,7 +71,7 @@
 // .opacity(@opacity) makes element opaque adds ms-filter
 
 // Triangle mixin: if you want to change default values of triangel figures type for example: .triangle_right(#444, 10px, 5px) where #444—color change, 10px—changes colored side of triange, 5px—change transparent sides size;
-.triangle_right_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) { // if you type .triangle_right in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less  
+.triangle_right_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) { // if you type .triangle_right in your stylesheet_or_layout.less file it would take color from @triangle_color defined in layout.less
     border-bottom: @_triangle_trans_size solid transparent;
     border-top: @_triangle_trans_size solid transparent;
     border-left: @_triangle_colored_size solid @color; //you can change its color in layout.less
@@ -90,14 +90,14 @@
     .size(0,0)
 }
 
-.triangle_up_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) {   
+.triangle_up_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) {
     border-right: @triangle_trans_size solid transparent;
     border-left: @triangle_trans_size solid transparent;
     border-bottom: @triangle_colored_size solid @color;
     .size(0,0);
 }
 
-.triangle_down_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) {   
+.triangle_down_mixin(@color: @triangle_color, @_triangle_colored_size: @triangle_colored_size, @_triangle_trans_size: @triangle_trans_size) {
     border-right: @triangle_trans_size solid transparent;
     border-left: @triangle_trans_size solid transparent;
     border-top:  @triangle_colored_size solid @color;
@@ -152,27 +152,27 @@
 @button_color: #B5CDFC;
 @button_hover: #056012;
 
-.button_mixin() {
-//  background-color: darken(@button_color, 10%);
-  background-image: linear-gradient(top, @button_color, darken(@button_color, 2%) 10%, darken(@button_color, 7%) 90%, darken(@button_color, 13%));
+.button_mixin(@_button_color: @button_color, @_button_hover: @button_hover) {
+//  background-color: darken(@_button_color, 10%);
+  background-image: linear-gradient(top, @_button_color, darken(@_button_color, 2%) 10%, darken(@_button_color, 7%) 90%, darken(@_button_color, 13%));
   cursor: pointer;
   display: inline-block;
   padding: 5px 14px 6px;
   text-shadow: 0 1px 1px rgba(255,255,255,.75);
   text-decoration: none;
   color: #333;
-  border: 1px solid darken(@button_color, 27%);
-  border-top-color: darken(@button_color, 20%);
-  border-bottom-color: darken(@button_color, 33%);
+  border: 1px solid darken(@_button_color, 27%);
+  border-top-color: darken(@_button_color, 20%);
+  border-bottom-color: darken(@_button_color, 33%);
   border-radius: 4px;
   @button_shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.1);
   box-shadow: @button_shadow;
 
   &:hover {
-    color: @button_hover;
-    border-color: lighten(@button_hover, 10%);
-    border-top-color: lighten(@button_hover, 15%);
-    border-bottom-color: lighten(@button_hover, 5%);
+    color: @_button_hover;
+    border-color: lighten(@_button_hover, 10%);
+    border-top-color: lighten(@_button_hover, 15%);
+    border-bottom-color: lighten(@_button_hover, 5%);
   }
 
   // Focus state for keyboard and accessibility
