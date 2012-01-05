@@ -1,18 +1,23 @@
 
 // setup vertical rhythm
 @rhythm: 24px;
-
+@base_fs: 16px;
 
 // Load Sona framework
-@setup_framework_path: "../../css/sona";
-@import "../../css/sona/util/install";
-@import "../../css/sona/sgrid/install";
-@import "../../css/sona/rhythm/install";
+@setup_framework_path: "../css/sona";
+@import "sona/util/install";
+@import "sona/sgrid/install";
+@import "sona/rhythm/install";
+@import "sona/reset/install";
+@import "sona/type/install";
+@import "sona/shortcuts.less"; // here useful mixins and description of entire mixins in Sona framework
+
+.normalize; // normalize css or
 
 
 // Load LessFramework reset and typographic (optional)
-@import "../../css/sona/lessframework/reset";
-@import "../../css/sona/lessframework/type";
+@import "sona/lessframework/reset";
+@import "sona/lessframework/type";
 
 
 
