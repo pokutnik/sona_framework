@@ -1,5 +1,6 @@
 
 // setup vertical rhythm
+@base_fs: 16px;
 @rhythm: 21px;
 
 
@@ -8,6 +9,7 @@
 @import "../../css/sona/util/install";
 @import "../../css/sona/sgrid/install";
 @import "../../css/sona/rhythm/install";
+@import "../../css/sona/shortcuts";
 
 .sgrid_setup(960px, 12, 20px);
 
@@ -16,9 +18,9 @@ body {
 
   header,
   section,
-  footer { 
+  footer {
     .row;
-    border-bottom: 2px dotted black; 
+    border-bottom: 2px dotted black;
   }
 
   header{
@@ -30,11 +32,11 @@ body {
   section {
     article {
       .col(8);
-      .col_left;
+      .fl;
     }
     aside {
       .col(4);
-      .col_left;
+      .fl;
     }
   }
 
@@ -43,10 +45,10 @@ body {
       .unit(3);
       padding: 1em;
       box-sizing: border-box;
-      
-      .col_left;
+
+      .fl;
       margin-top: 1em;
-		
+
       h1 {
       	.row;
       }
@@ -64,7 +66,7 @@ body {
     }
     .p2 {
       .shitf_left(3);
-    }   
+    }
   }
 }
 
