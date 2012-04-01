@@ -9,5 +9,5 @@
     } 
     var watchTimer = setInterval(function (){
         less.refresh(true);
-    }, 1000000);
+    }, 1000);
 })(window);
