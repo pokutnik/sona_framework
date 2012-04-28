@@ -1,1 +1,29 @@
-.
+.project_details {
+	.sgrid();
+	.unit(12);
+	.box_stylization();
+	margin-top: @rhythm*2;
+}
+
+.project_details_description {
+	.col(6);
+	.left();
+}
+
+.project_details_reviewers {
+	.col(6);
+	.right();
+
+	.reviewers_list {
+		height: @rhythm*5;
+		overflow: scroll;
+		.list_reset();
+	}
+}
+
+.project_details_chart {
+	background: #999;
+	.col(12);
+	height: @rhythm*5;
+	.clearfix();
+}
