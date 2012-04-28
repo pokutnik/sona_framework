@@ -3,8 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Sona Framework's documentation!
-==========================================
+What is Sona framework?
+=======================
+
+Easy to use web layout product.
+Its intensively uses less.js to generate your css.
+
+
+You can use it for:
+
+ * fast prototyping [tutorial] (use grids, collection of styles ... );
+ * in place web design [setup_server] (short responce loop. You change code, it immdiatly redraws in browser);
+ * as library full of heplfull mixins [modules] (army knife for css);
+ * as collection of advanced less.js patterns [github_project].
+
+
 
 Contents:
 
