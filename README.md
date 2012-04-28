@@ -51,7 +51,7 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 ## More Information
 
 ## Authors 
-Sona Framework is developed by Pokutnik Alexandr and Jevgenii Likhovidov at [Sona studio][sona]. 
+Sona Framework is developed by Pokutnik Alexandr and Jevgenii Likhovidov at [Sona studio][sona].
 
 ## License
 Copyright (c) 2010-2011 [Sona studio][sona]
