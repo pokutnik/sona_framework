@@ -69,6 +69,72 @@
 @semi_black: rgba(0,0,0,0.5);
 @semi_white: rgba(255,255,255,0.5);
 
+@box_bg: #E6E6E6;
+@sidebar_tumblr_bg: #349aff;
+
+@gray_font_color: #4D4D4D;
+
+@dev_bg_green_color: #81CB5C;
+
+@dev_time_input_form_border_color: #4D4D4D;
+
+
+.box_shadow {
+//    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 1px 1px 1px rgba(0,0,0,0.1) inset;
+    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3), 1px -1px 2px rgba(255, 255, 255, 0.2) inset, -1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+
+
+// ----------------- MIXINS FOR BODY BG ------------------------
+.radial_shadow_right_bg {
+    position: relative;
+
+    &:after {
+        background-image: -moz-radial-gradient(640px 10px , circle , rgba(0, 0, 0, 0.2) 50px, rgba(255, 255, 255, 0) 500px);
+        background-repeat: no-repeat;
+        content: "";
+        height: 600px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 600px;
+        z-index: -1;
+    }
+
+    &:before {
+        background-image: -moz-radial-gradient(410px 370px , circle , rgba(0, 0, 0, 0.2) 20px, rgba(255, 255, 255, 0) 300px);
+        background-repeat: no-repeat;
+        bottom: 0;
+        content: "";
+        height: 370px;
+        position: absolute;
+        right: 0;
+        width: 370px;
+        z-index: -1;
+    }
+}
+
+
+// -------------------- HTML BG -----------------------
+html, body {
+    height: 100%;
+}
+
+.linear_sahdow_bg {
+    background-image: linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0) 9%, rgba(255, 255, 255, 0) 90%,  rgba(0, 0, 0, 0.2) 100%);
+}
+
+html {
+    background-color: #f9f9f9;
+    .linear_sahdow_bg();
+//    background-image: url('../images/pat/bg_pat_batthern.png');
+//    background-image: url('../images/pat/bg_pat_graphy.png');
+    .radial_shadow_right_bg();
+}
+
+// /MIXINS AND VARIABLES!!!!!!!!!!!!!!!!!!!!!!!!
+
 // RESET (addition to Normalise.css)
 img {
 	display: block;

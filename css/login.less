@@ -1,0 +1,48 @@
+// ----------------- MAIN LOGIN ------------------------
+.login_section {
+    background-color: @box_bg;
+	.box_shadow();
+    float: left;
+    padding: 20px 0 30px 0;
+    margin: 150px 0 0 315px;
+    width: 611px;
+}
+
+.login_header {
+    color: @gray_font_color;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.login_input_box {
+    position: relative;
+    margin: 0 auto;
+    @login_main_input_box_width: @login_input_paddding_width+@login_input_border_size*2+@login_input_width;
+    width: @login_main_input_box_width;
+
+    .input_box_label {
+        color: #666;
+        padding: 12px 9px;
+        position: absolute;
+
+    }
+
+@login_input_paddding_width: 12px;
+@login_input_border_size: 1px;
+@login_input_width: 210px;
+
+    input {
+        border: @login_input_border_size solid #CCC;
+        box-shadow: 0px 1px 0px #ffffff;
+        color: #444;
+        padding: 12px 9px;
+        margin-bottom: 15px;
+        width: @login_input_width;
+    }
+}
+
+.login_button {
+	margin: 0 auto;
+	display: block;
+}
