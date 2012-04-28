@@ -1,11 +1,25 @@
-// ----------------- MAIN LOGIN ------------------------
+.login_promo {
+	.sgrid();
+	.box_stylization();
+	.col(8);
+	margin-top: @rhythm*4;
+}
+
+.login_logo {
+	.fs(32px);
+	margin: @rhythm 0;
+    color: @gray_font_color;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+}
+
 .login_section {
-    background-color: @box_bg;
-	.box_shadow();
-    float: left;
-    padding: 20px 0 30px 0;
-    margin: 150px 0 0 315px;
-    width: 611px;
+	.sgrid();
+	.box_stylization();
+    padding: @rhythm 0 @rhythm*2 0;
+    .col(8);
+	margin-top: @rhythm*2;
 }
 
 .login_header {

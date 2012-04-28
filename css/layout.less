@@ -69,7 +69,6 @@
 @semi_black: rgba(0,0,0,0.5);
 @semi_white: rgba(255,255,255,0.5);
 
-@box_bg: #E6E6E6;
 @sidebar_tumblr_bg: #349aff;
 
 @gray_font_color: #4D4D4D;
@@ -79,9 +78,10 @@
 @dev_time_input_form_border_color: #4D4D4D;
 
 
-.box_shadow {
+.box_stylization {
 //    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 1px 1px 1px rgba(0,0,0,0.1) inset;
     box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3), 1px -1px 2px rgba(255, 255, 255, 0.2) inset, -1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+	background-color: #E6E6E6;
 }
 
 
@@ -127,10 +127,10 @@ html, body {
 
 html {
     background-color: #f9f9f9;
-    .linear_sahdow_bg();
+//    .linear_sahdow_bg();
 //    background-image: url('../images/pat/bg_pat_batthern.png');
 //    background-image: url('../images/pat/bg_pat_graphy.png');
-    .radial_shadow_right_bg();
+//    .radial_shadow_right_bg();
 }
 
 // /MIXINS AND VARIABLES!!!!!!!!!!!!!!!!!!!!!!!!
@@ -146,19 +146,18 @@ body {
 
 // HEADER
 .main_header_wrapper {
-  .border_box();
-  border-bottom: 2px solid #999;
   height: @rhythm*4;
 }
 
 .main_header {
   .sgrid();
-  padding-top: @rhythm;
+  padding-top: @rhythm*2;
 }
 
 .main_logo {
   .fs(32px);
   line-height: @rhythm*2;
+	text-align: center;
 }
 // /HEADER
 
