@@ -4,22 +4,7 @@
 }
 
 .add_project_button {
-	border-radius: 6px;
-	.fs(19px);
-	line-height: @rhythm;
-	padding: @rhythm/2 @gap;
-	transition: all 0.1s linear 0s;
-	background-image: linear-gradient(center top , #B5CDFC, #ABC6FC 10%, #93B6FB 90%, #75A2F9);
-	border-color: #538BF8 #3174F7 #1360F5;
-	border-style: solid;
-	border-width: 1px;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.1);
-	color: #333333;
-	cursor: pointer;
-	display: inline-block;
-	text-decoration: none;
-	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-	margin-bottom: -2px;
+	.blue_button();
 }
 
 .project_list_nav {
@@ -74,15 +59,24 @@
 			width: @unit;
 			padding: 0 @gap/2;
 			margin-top: -1px;
+			text-decoration: none;
 		}
 	}
 
 	h4 {
 		margin: 0;
+		text-overflow: ellipsis;
+		height: @rhythm;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 
 	p {
     	margin: 0;
+		text-overflow: ellipsis;
+		height: @rhythm;
+		white-space: nowrap;
+		overflow: hidden;
 	}
 }
 
