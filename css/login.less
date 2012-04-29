@@ -5,16 +5,14 @@
 	margin-top: @rhythm*4;
 }
 
-.login_logo {
-	.fs(32px);
-	font-family: 'PT Sans', Arial, sans-serif;
+.login_logo_wrapper {
 	border-bottom: 3px solid @bg_color;
-	padding-bottom: @rhythm - 3px;
-	margin: 0 0 @rhythm;
-    color: #0D7AAD;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+
+	img {
+		.size( 56px, 126px);
+		margin: 0 auto;
+		padding-bottom: @rhythm;
+	}
 }
 
 .login_section {
@@ -59,6 +57,6 @@
 
 .login_button {
 	margin: @rhythm auto 0;
-	.green_button();
+	.blue_button();
 	display: block;
 }

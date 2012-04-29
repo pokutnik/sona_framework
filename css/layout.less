@@ -220,6 +220,7 @@ body {
 // HEADER
 .main_header_wrapper {
   //height: @rhythm*4;
+	position: relative;
 }
 
 .main_header {
@@ -227,10 +228,24 @@ body {
   padding-top: @rhythm*2;
 }
 
-.main_logo {
-  .fs(32px);
-  line-height: @rhythm*2;
-	text-align: center;
+.main_logo_wrapper {
+	line-height: @rhythm*2;
+
+	.to_homepage_link {
+		.size(56px, 126px);
+		background: url("../images/foco_logo.png");
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.main_invitation_box {
+	position: absolute;
+	right: 260px;
+	top: 0;
+	background-color: #F4F5F6;
+	border-radius: 0 0 6px 6px;
+	padding: 6px 12px;
 }
 // /HEADER
 
