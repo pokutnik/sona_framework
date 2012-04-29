@@ -15,10 +15,24 @@
 	.right();
 
 	.reviewers_list {
-		height: @rhythm*5;
+		height: @rhythm*12;
 		overflow: auto;
 		.list_reset();
 		margin-bottom: @rhythm;
+		padding: 21px 24px;
+
+		li {
+			border-bottom: 1px solid #CCCCCC;
+		    padding: 4px 0;
+		}
+
+		a {
+			color: #0D7AAD;
+			font-size: 16px;
+			font-weight: bold;
+			line-height: 21px;
+			text-decoration: none;
+		}
 	}
 }
 
