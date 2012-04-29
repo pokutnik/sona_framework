@@ -1,6 +1,7 @@
 .project_list_wrapper {
 	.sgrid();
 	.unit(8);
+	.box_stylization();
 }
 
 .add_project_button {
@@ -8,7 +9,7 @@
 }
 
 .project_list_nav {
-	background-image: linear-gradient(top, #ABC6FC, #75A2F9);
+	/*background-image: linear-gradient(top, #ABC6FC, #75A2F9);
 	cursor: pointer;
 	text-shadow: 0 1px 1px rgba(255,255,255,.75);
 	color: #333;
@@ -19,43 +20,51 @@
  	line-height: @rhythm;
 	padding: @rhythm/2 0;
 	.col(6);
-	margin: @rhythm 0 @rhythm - 2px;
+	margin: @rhythm 0 @rhythm - 2px;*/
+	height: @rhythm*2;
+
 
 	a {
-		padding: 0 @gap/2;
+		padding: @rhythm/2 @gap/2;
 		text-decoration: none;
 		color: #333;
+		background: #F4F5F6;
+		border-right: 2px solid white;
 	}
 }
 
 .project_list_search {
 	.col(3);
 	.right();
+	padding: 10px 12px;
+	background-color: #B9E3F7;
 }
 
 .project_list {
 	.list_reset();
 
+@project_list_height: @rhythm*2 + 10px;
+
 	li {
 		.clearfix();
-		border: 1px solid #aaa;
+		border: 1px solid @thin_border_color;
 		border-radius: 10px;
-		height: @rhythm*2;
+		height: @project_list_height;
 		padding: 0 0 0 60px;
 		margin-bottom: @rhythm - 2px;
 
 		a {
 			.fr();
-			background-image: linear-gradient(top, #ABC6FC, #75A2F9);
+			background-image: linear-gradient(top, #FFF 40%, #EEE);
 			cursor: pointer;
 			text-shadow: 0 1px 1px rgba(255,255,255,.75);
 			color: #333;
-			border: 1px solid #1360F5;
+			border: 1px solid @thin_border_color;
 			border-radius:  0 10px 10px 0;
-			box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.1);
+			text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
 		 	.fs(16px);
-			height: @rhythm*2;
-		 	line-height: @rhythm*2;
+			height: @project_list_height;
+		 	line-height: @rhythm*2 + 10px;
 			width: @unit;
 			padding: 0 @gap/2;
 			margin-top: -1px;
@@ -64,14 +73,17 @@
 	}
 
 	h4 {
-		margin: 0;
+		.fs(15px);
+		margin: 6px 0 0;
 		text-overflow: ellipsis;
 		height: @rhythm;
 		white-space: nowrap;
 		overflow: hidden;
+		line-height: @rhythm;
 	}
 
 	p {
+		.fs(13px);
     	margin: 0;
 		text-overflow: ellipsis;
 		height: @rhythm;
@@ -82,7 +94,7 @@
 
 .project_list_interest {
 	.fr();
-	height: @rhythm*2;
-	line-height: @rhythm*2;
+	height: @rhythm*2 + 10px;
+	line-height: @rhythm*2 + 10px;
 	padding: 0 @gap/2;
 }

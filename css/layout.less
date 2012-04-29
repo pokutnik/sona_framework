@@ -1,4 +1,4 @@
-.sgrid_setup(984px, 12, 24px); // sets grid ty 12 columns, I usually use 960px or 984px with 24px gap for basik width
+.sgrid_setup(1080px, 12, 24px); // sets grid ty 12 columns, I usually use 960px or 984px with 24px gap for basik width
 
 // TIPS
 // .sgrid; to set grid, margin: 0 auto, .clearfix();
@@ -71,20 +71,24 @@
 
 @sidebar_tumblr_bg: #349aff;
 
-@gray_font_color: #4D4D4D;
+@bg_color: #B9E3F7;
 
-@dev_bg_green_color: #81CB5C;
+@gray_font_color: #333;
 
-@dev_time_input_form_border_color: #4D4D4D;
+@thin_border_color: #ccc;
 
 
 .box_stylization {
-//    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(255, 255, 255, 0.2) inset, 1px 1px 1px rgba(0,0,0,0.1) inset;
-    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3), 1px -1px 2px rgba(255, 255, 255, 0.2) inset, -1px 1px 1px rgba(0, 0, 0, 0.1) inset;
-	background-color: #E6E6E6;
+//    box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3), 1px -1px 2px rgba(255, 255, 255, 0.2) inset, -1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+//	background-color: #E6E6E6;
+
+	box-shadow: 1px 1px 2px rgba(49, 151, 198, 0.7), 1px 1px 1px rgba(0, 0, 0, 0.1) inset;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: @rhythm*2 57px;
 }
 
-.blue_button {
+/*.blue_button {
 	border-radius: 6px;
 	.fs(19px);
 	line-height: @rhythm;
@@ -101,6 +105,29 @@
 	text-decoration: none;
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 	margin-bottom: -2px;
+} */
+
+.blue_button {
+	height: @rhythm*2;
+	padding: 0 @gap*1.5;
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	color: white;
+	font-familyt: 'PT Sans',Arial,sans-serif;
+	font-weight: bold;
+	.fs(18px);
+	text-decoration: none;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+	text-align: center;
+	cursor: pointer;
+	border-radius: 32px;
+	box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7) inset, 0 10px 1px rgba(255, 255, 255, 0.2) inset, 1px 2px 2px rgba(0, 0, 0, 0.4);
+	background: #1487BC;
+	border: 1px solid;
+	border-color: #3BAADD #1684B7 #0D73A3;
+	background-image: linear-gradient(top,  #3EB2E8, #1487BC);
+	text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.5);
 }
 
 
@@ -144,7 +171,10 @@ html, body {
 }
 
 html {
-    background-color: #f9f9f9;
+    //background-color: #f9f9f9;
+
+	background-color: @bg_color;
+
 //    .linear_sahdow_bg();
 //    background-image: url('../images/pat/bg_pat_batthern.png');
 //    background-image: url('../images/pat/bg_pat_graphy.png');
