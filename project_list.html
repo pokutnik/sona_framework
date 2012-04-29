@@ -31,97 +31,52 @@
 </head>
 
 <body>
-	<div id="skip-link"><a href="#main-menu">Jump to Navigation</a></div>
-	<div class="main_header_wrapper">
-		<header class="main_header">
-			<div class="main_logo">Foco</div>
-		</header>
-	</div>
-	<div class="project_list_wrapper">
-		<button class="add_project_button">Add project</button>
-		<div class="project_list_search">
-			<form action="">
-				<input name="" type="text" onfocus="if(this.value=='Search')this.value=''" onblur="if(this.value=='')this.value='Search'" value="Search">
-				<a href="#" onclick="$(this).parent().submit(); return false;">Search</a>
-			</form>
-		</div>
-		<nav class="project_list_nav">
-			<a href="#">All projects</a>
-			<a href="#">My projects</a>
-			<a href="#">To review</a>
-		</nav>
-		<ul class="project_list">
-			<li>
-				<a href="#">Detail</a>
-				<div class="project_list_interest">
-					test 98%
-				</div>
-				<h4>ProjName1 best project ever best project ever best project ever best project ever</h4>
-				<p>The best project ever best project ever best project ever best project ever best project ever best project ever</p>
-			</li>
-			<li>
-				<a href="#">Detail</a>
-				<div class="project_list_interest">
-					test 98%
-				</div>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-			<li>
-				<a href="#">Review</a>
-				<div class="project_list_interest">
-					test 98%
-				</div>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-			<li>
-				<a href="#">Detail</a>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-			<li>
-				<a href="#">Detail</a>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-			<li>
-				<a href="#">Reviewed</a>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-			<li>
-				<a href="#">Reviewed</a>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-			<li>
-				<a href="#">Reviewed</a>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-			<li>
-				<a href="#">Reviewed</a>
-				<h4>ProjName1</h4>
-				<p>The best project ever</p>
-			</li>
-		</ul>
-	</div>
 
+        <div class="main_header_wrapper">
+            <header class="main_header">
+                <div class="main_logo">Foco</div>
+                Hi, chem
+                <a href="/logout">Log out</a>
+            </header>
+        </div>
 
-<script type="text/javascript">
+      <div id='notice'></div>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-31263022-1']);
-  _gaq.push(['_trackPageview']);
+    <div class="project_list_wrapper">
+    <a href="/projects/new" class="add_project_button">Add project</a>
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+    <div class="project_list_search">
+        <form action="">
+            <input name="" type="text" onfocus="if(this.value=='Search')this.value=''" onblur="if(this.value=='')this.value='Search'" value="Search">
+            <a href="#" onclick="$(this).parent().submit(); return false;">Search</a>
+        </form>
+    </div>
+    <nav class="project_list_nav">
+      <a href="#">All projects</a>
+      <a href="#">My projects</a>
+      <a href="#">To review</a>
+    </nav>
+    <ul class="project_list">
+      <li>
+          <a href="/projects/1">Detail</a>
+        <div class="project_list_interest">test 98%</div>
+        <h4>Testing projeckt</h4>
+        <p>Just some empy tprojeckt</p>
+      </li>
+      <li>
+          <a href="/projects/2">Detail</a>
+        <div class="project_list_interest">test 98%</div>
+        <h4>Bigger Proj</h4>
+        <p>Nyan cat is ower</p>
+      </li>
+      <li>
+          <a href="/projects/3/reviews/new">Add review</a>
+        <div class="project_list_interest">test 98%</div>
+        <h4>Doctor treater Ultimate.</h4>
+        <p>kill me presentation</p>
+      </li>
+    </ul>
+</div>
 
 </body>
 </html>
