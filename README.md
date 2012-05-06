@@ -17,10 +17,12 @@ A [less][less]-based CSS Framework for easy and advanced developing HTML5 layout
 0. Great power of [less][less]. So you write Less instead of CSS use variables and
    mixins in your code. Dont need to use aditional classes in your html, just appy
    mixind according page semantic selectors.
-1. Easy and flexible way to create grid based layout.
-2. Great local layout development enviroment. (Autoreloading styles, local webserver)
-3. Skeleton for creation responsible design
-4. Integration with [PrefixFree][prefixfree] 
+1. Instant updates in borwser. Save changes in less files and instantly see
+   changes in browser, even without reloading page.
+2. Easy and flexible way to create grid based layout.
+4. Skeleton for creation responsible design
+5. Integration with [PrefixFree][prefixfree]. No need to write vendor prefixes
+   in your source less files.
 
 
 ## Quick Start
