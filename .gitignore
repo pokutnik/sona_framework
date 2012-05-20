@@ -1,4 +1,5 @@
 .project
+.build/
 export/
 .build
 *.html~
