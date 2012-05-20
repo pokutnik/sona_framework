@@ -140,6 +140,22 @@ def render_htmls(f, e):
             rendered = renderTemplate(file['content'], file)
             write_file(file['url'], rendered)
 
+def update_url(url):
+    path = os.path.join(SOURCE, url)
+    
+    with open(path, "rU") as f:
+        files.append({
+            'content': ''.join(f.readlines()),
+            'filename': name,
+            'url': rel_path,
+            'path': path,
+            'name': name,
+            'mtime': mtime,
+        })
+
+    print '\n#', file['url']
+    rendered = renderTemplate(file['content'], file)
+    write_file(file['url'], rendered)
 
 @step
 def copy_static(f, e):
