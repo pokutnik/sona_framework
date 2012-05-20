@@ -2,3 +2,4 @@
 .build/
 export/
 *.html~
+*.pyc
