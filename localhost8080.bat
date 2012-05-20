@@ -1,1 +1,1 @@
-python localhost_server.py 8080
+python server/localhost_server.py 8080
