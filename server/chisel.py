@@ -7,6 +7,7 @@
 
 import sys
 import os
+import shutil
 
 # Settings
 SOURCE = "./"  # end with slash
@@ -113,7 +114,17 @@ def write_file(url, data):
     file = open(path, "w")
     file.write(data.encode('UTF-8'))
     file.close()
-    print '=>', path
+    print '   =>', url
+
+
+def copy_file(url):
+    dest_path = os.path.join(DESTINATION, url)
+    dirs = os.path.dirname(dest_path)
+    if not os.path.isdir(dirs):
+        os.makedirs(dirs)
+    path = os.path.join(SOURCE, url)
+    shutil.copy2(path, dest_path)
+    print '   =>', url
 
 
 def is_html(name):
@@ -125,9 +136,19 @@ def is_html(name):
 def render_htmls(f, e):
     for file in f:
         if is_html(file['name']):
-            print '#', file['url']
+            print '\n#', file['url']
             rendered = renderTemplate(file['content'], file)
             write_file(file['url'], rendered)
+
+
+@step
+def copy_static(f, e):
+    css_dir = os.path.join(SOURCE, 'css')
+    js_dir = os.path.join(SOURCE, 'js')
+    for file in f:
+        name = file['path']
+        if is_sub(css_dir, name) or is_sub(js_dir, name):
+            copy_file(file['url'])
 
 
 def main():
