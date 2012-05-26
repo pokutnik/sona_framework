@@ -29,3 +29,7 @@ def path_to(url):
         url = url[1:]
     path = os.path.join(SOURCE, url)
     return path
+
+
+def is_index(url):
+    return os.path.exists(path_to(url) + 'index.html')

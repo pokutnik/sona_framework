@@ -10,7 +10,10 @@ ROOT = here('..')
 SOURCE = ROOT
 DESTINATION = here('../export')
 TEMPLATE_PATH = here("../templates")
+CSS_DIR = here("../css")
+IMAGES_DIR = here("../images")
 SEVER_PATH = here('.')
+
 SKIP_PATHS = [
         DESTINATION,
         TEMPLATE_PATH,
@@ -18,6 +21,14 @@ SKIP_PATHS = [
         ROOT + '/.',
         here('../.git'),
         here('../doc'),
+    ]
+
+STATIC_URLS = [
+        '/css/',
+        '/images/',
+        '/docs/',
+        '/export/',
+        '/js/',
     ]
 
 
