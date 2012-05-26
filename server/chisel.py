@@ -2,41 +2,17 @@
 
 # Based on Chisel by David Zhou
 #
-# Requires:
-# jinja2
-
 import sys
 import os
 import shutil
 
 # Settings
-SOURCE = "./"  # end with slash
-DESTINATION = "./export/"  # end with slash
-TEMPLATE_PATH = "./templates/"
-TEMPLATE_OPTIONS = {}
-
-try:
-    import jinja2
-
-    jinja2_env = jinja2.Environment(
-            loader=jinja2.FileSystemLoader(TEMPLATE_PATH),
-            **TEMPLATE_OPTIONS)
-
-    def renderTemplate(template, context):
-        template = template.decode("utf8")
-        return jinja2_env.from_string(template).render(context)
-
-    def templateFilter(func):
-        """ decorator to easily create jinja2 filters
-        """
-        jinja2_env.filters[func.__name__] = func
-
-except ImportError:
-    def renderTemplate(template, context):
-        raise NotImplementedError('no template engine configured!')
 
 
 _STEPS = []
+
+from config import SOURCE, DESTINATION, SKIP_PATHS
+from render import render_url, path_to
 
 
 def step(func):
@@ -59,12 +35,9 @@ def is_sub(parent, subfolder):
 
 
 def can_skip(filename):
-    if is_sub(TEMPLATE_PATH, filename):
-        return True
-    if is_sub(os.path.dirname(DESTINATION), filename):
-        return True
-    if is_sub(os.path.dirname(__file__), filename):
-        return True
+    for skip in SKIP_PATHS:
+        if filename.startswith(skip):
+            return True
 
 
 def ensure_destination():
@@ -77,10 +50,10 @@ def get_tree(source):
     rel = lambda fname: fname[len(source):]
 
     for root, ds, fs in os.walk(source):
-        print 'root>', root, can_skip(root)
         if is_dot(rel(root)) or can_skip(root):
             continue
         for name in fs:
+            print '>', root, name
             if is_dot(name):
                 continue
             path = os.path.join(root, name)
@@ -107,7 +80,7 @@ def compare_entries(x, y):
 
 
 def write_file(url, data):
-    path = os.path.join(DESTINATION, url)
+    path = DESTINATION + url
     dirs = os.path.dirname(path)
     if not os.path.isdir(dirs):
         os.makedirs(dirs)
@@ -118,11 +91,11 @@ def write_file(url, data):
 
 
 def copy_file(url):
-    dest_path = os.path.join(DESTINATION, url)
+    dest_path = DESTINATION + url
     dirs = os.path.dirname(dest_path)
     if not os.path.isdir(dirs):
         os.makedirs(dirs)
-    path = os.path.join(SOURCE, url)
+    path = path_to(url)
     shutil.copy2(path, dest_path)
     print '   =>', url
 
@@ -133,32 +106,21 @@ def is_html(name):
 
 
 @step
-def render_htmls(f, e):
+def render_htmls(f):
     for file in f:
         if is_html(file['name']):
             print '\n#', file['url']
-            rendered = renderTemplate(file['content'], file)
+            rendered = render_url(file['url'])
             write_file(file['url'], rendered)
 
-def update_url(url):
-    path = os.path.join(SOURCE, url)
-    
-    with open(path, "rU") as f:
-        files.append({
-            'content': ''.join(f.readlines()),
-            'filename': name,
-            'url': rel_path,
-            'path': path,
-            'name': name,
-            'mtime': mtime,
-        })
 
-    print '\n#', file['url']
-    rendered = renderTemplate(file['content'], file)
-    write_file(file['url'], rendered)
+def update_url(url):
+    rendered = render_url(url)
+    write_file(url, rendered)
+
 
 @step
-def copy_static(f, e):
+def copy_static(f):
     css_dir = os.path.join(SOURCE, 'css')
     js_dir = os.path.join(SOURCE, 'js')
     for file in f:
@@ -176,7 +138,7 @@ def main():
     print "\tRunning steps..."
     for step in _STEPS:
         print "\t\t",
-        step(files, jinja2_env)
+        step(files)
     print "\tDone."
     print "Done."
 
