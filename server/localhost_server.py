@@ -1,33 +1,31 @@
 #!/usr/bin/env python
 import sys
-import os
-import posixpath
-import urllib
-from SimpleHTTPServer import SimpleHTTPRequestHandler
-import BaseHTTPServer
-from chisel import is_html, update_url
-from chisel import DESTINATION
+from bottle import run, route, Bottle, static_file, debug, redirect
+from bottle import request
+from config import STATIC_URLS, ROOT
+from render import render_url, is_index
+
+app = Bottle()
+
+def is_static_url(url):
+    for static in STATIC_URLS:
+        if url.startswith(static):
+            return True
 
 
-class SonaHandler(SimpleHTTPRequestHandler):
-    def translate_path(self, serve_path):
-        """
-        Trigger rerender for html files.
-        Serve file form destination folder.
-        """
-        path = serve_path.split('?', 1)[0]
-        path = path.split('#', 1)[0]
-        path = posixpath.normpath(urllib.unquote(path))
-        path = SimpleHTTPRequestHandler.translate_path(self, path)
-        url = path
-        if is_html(path):
-            update_url(url)
-            d, f = os.path.split(path)
-            path = os.path.join(d, DESTINATION, f)
-            path = posixpath.normpath(path)
-            print ">>>> YAY", path
+@route("<url:path>")
+def server_css(url):
+    if is_index(url):
+        return redirect(url + 'index.html')
 
-        return path
+    if is_static_url(url):
+        return static_file(url, ROOT)
+
+    if url.endswith('.html'):
+        return render_url(request.path, {})
+
+
+    return "FAIL"
 
 
 if __name__ == '__main__':
@@ -35,9 +33,6 @@ if __name__ == '__main__':
         port = int(sys.argv[1])
     else:
         port = 80
-    server_address = ('', port)
-    httpd = BaseHTTPServer.HTTPServer(server_address, SonaHandler)
-    sa = httpd.socket.getsockname()
-    print "Serving HTTP on", sa[0], "port", sa[1], "..."
-    print "Open  http://%s:%s/" % (sa[0], sa[1])
-    httpd.serve_forever()
+    
+    debug(True)
+    run(host='0.0.0.0', port=port)
