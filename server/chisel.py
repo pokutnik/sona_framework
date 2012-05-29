@@ -123,6 +123,7 @@ def compile_context(**extra):
     context.update(extra)
     return context
 
+
 def update_url(url):
     rendered = render_url(url)
     write_file(url, rendered)
