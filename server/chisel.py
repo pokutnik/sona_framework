@@ -110,9 +110,18 @@ def render_htmls(f):
     for file in f:
         if is_html(file['name']):
             print '\n#', file['url']
-            rendered = render_url(file['url'])
+            context = compile_context()
+            rendered = render_url(file['url'], context)
             write_file(file['url'], rendered)
 
+
+def compile_context(**extra):
+    context = {
+            'dev': False,
+            'compile': True,
+        }
+    context.update(extra)
+    return context
 
 def update_url(url):
     rendered = render_url(url)

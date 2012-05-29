@@ -22,7 +22,7 @@ def server_css(url):
         return static_file(url, ROOT)
 
     if url.endswith('.html'):
-        return render_url(request.path, {})
+        return render_url(request.path, {'dev': True})
 
 
     return "FAIL"
