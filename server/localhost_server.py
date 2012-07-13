@@ -11,6 +11,10 @@ def is_static_url(url):
     for static in STATIC_URLS:
         if url.startswith(static):
             return True
+    if url.endswith('html'):
+        return False
+    return True
+
 
 
 @route("<url:path>")
