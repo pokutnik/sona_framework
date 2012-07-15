@@ -24,6 +24,19 @@ def render_url(url, context={}):
     return html
 
 
+def render_dir(url, ROOT):
+    path = path_to(url)
+    dir_url = url + '' if url.endswith('/') else '/'
+    files = os.listdir(path)
+    html = render_template("""
+    {%- for file in files -%}
+      <a href="{{ dir_url }}{{ file }}">{{ file }}</a><br />
+    {%- endfor -%}
+    """,
+        dict(files=files, dir_url=dir_url))
+    return html
+
+
 def path_to(url):
     if url[0] == '/':
         url = url[1:]
@@ -33,3 +46,7 @@ def path_to(url):
 
 def is_index(url):
     return os.path.exists(path_to(url) + 'index.html')
+
+
+def is_dir(url):
+    return os.path.isdir(path_to(url))
