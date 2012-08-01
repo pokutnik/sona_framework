@@ -1,0 +1,29 @@
+{% extends 'demo_base.html' %}
+{% block title %}Sona Framework: type sizes redefinition{% endblock %}
+
+{% block body %}
+    here are base style applied to fonts:
+    <h1>root: Heading 1</h1>
+    <h2>root: Heading 2</h2>
+    <h3>root: Heading 3</h3>
+    <h4>root: Heading 4</h4>
+    <h5>root: Heading 5</h5>
+    <h6>root: Heading 6</h6>
+    <header> 
+        here comes redefinition of stysles
+        <h1>header: Heading 1</h1>
+        <h2>header: Heading 2</h2>
+        <h3>header: Heading 3</h3>
+        <h4>header: Heading 4</h4>
+        <h5>header: Heading 5</h5>
+        <h6>header: Heading 6</h6>
+        <section>
+            <h1>neasted section redefinition: Heading 1</h1>
+            <h2>neasted section redefinition: Heading 2</h2>
+            <h3>neasted section redefinition: Heading 3</h3>
+            <h4>neasted section redefinition: Heading 4</h4>
+            <h5>neasted section redefinition: Heading 5</h5>
+            <h6>neasted section redefinition: Heading 6</h6>
+        </section>
+    </header>
+{% endblock body %}
